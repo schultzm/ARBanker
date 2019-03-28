@@ -16,10 +16,22 @@ cmd3 = "efetch -format xml"
 
 proc1 = Popen(shlex.split(f"{cmd1} {master_bioproject}"), stdout=PIPE)
 proc3 = Popen(shlex.split(cmd3), stdin=proc1.stdout, stdout=PIPE, stderr=PIPE)
-masterproject = ET.fromstring(proc3.communicate()[0].decode("UTF-8"))
-for slaveprojects in masterproject.findall('DocumentSummary'):
-    for slaveproject in slaveprojects.iter('ProjectLinks'):
-        print(slaveproject.tag)
+result_masterproj = proc3.communicate()[0].decode("UTF-8")
+masterproject = ET.fromstring(result_masterproj)
+for child in masterproject:
+    result = defaultdict(list)
+    for link in child.iter('ProjectIDRef'):
+        result['SlaveBioProject'].append(link.attrib['accession'])
+        result['MasterBioProject'].append(master_bioproject)
+    result = pd.DataFrame(result)
+    print(result)
+            # print(grandchild.tag)
+    # print(projectlinks.tag, projectlinks.attrib)
+
+
+# for slaveprojects in masterproject.findall('DocumentSummary'):
+#     for slaveproject in slaveprojects.iter('ProjectLinks'):
+#         print(slaveproject.tag)
     
 
 # print(masterproject)
