@@ -8,7 +8,7 @@ from subprocess import Popen, PIPE
 import shlex
 import xml.etree.ElementTree as ET #https://docs.python.org/3.7/library/xml.etree.elementtree.html#module-xml.etree.ElementTree
 import pandas as pd
-# from collections import defaultdict
+from collections import defaultdict
 
 results = pd.DataFrame()
 cmd1 = "esearch -db BioProject -query"
@@ -27,7 +27,6 @@ for child in masterproject:
         proc_b = Popen(shlex.split(cmd3), stdin=proc_a.stdout, stdout=PIPE,
                        stderr=PIPE)
         result_slaveproj = proc_b.communicate()[0].decode("UTF-8")
-        print(result_slaveproj)
         slaveproject = ET.fromstring(result_slaveproj)
         for grandchild in slaveproject:
             title_ = None
@@ -45,15 +44,28 @@ for child in masterproject:
                 grandchild_result = pd.DataFrame([grandchild_result])
                 # print(grandchild_result)
                 # print(grandchild_result)
+                # print("samn.attrib", samn.attrib)
                 results = pd.concat([grandchild_result, results],
                                     ignore_index=True,
                                     sort=False)
-                # proc_a = Popen(
-                #     shlex.split(f"{cmd1} {link.attrib['accession']}"),
-                #     stdout=PIPE)
-                # proc_b = Popen(shlex.split(cmd3), stdin=proc_a.stdout,
-                #                stdout=PIPE,
-                #                stderr=PIPE)
+                proc_c = Popen(shlex.split(cmd1.replace('BioProject',
+                                                        'BioSample') + " " +\
+                                           samn.attrib['biosample_id']),
+                               stdout=PIPE)
+                proc_d = Popen(shlex.split(cmd3), stdin=proc_c.stdout,
+                               stdout=PIPE,
+                               stderr=PIPE)
+                samn_tabl = proc_d.communicate()[0].decode("UTF-8")
+                print(samn_tabl)
+                samn_tabl_xml = ET.fromstring(samn_tabl)
+                # print(samn_tabl_xml)
+                antibiogram = None
+                for header in samn_tabl_xml.iter('Header'):
+                    antibiogram = pd.DataFrame(columns = [colname.text for colname in header.iter('Cell')])
+                    # print(colnames)
+                        # antibiogram[colname.text].append([])
+                print(antibiogram)
+                # print(samn_tabl_xml)
 
                 # result['BioSample'] = samn.attrib['biosample_id']
 
