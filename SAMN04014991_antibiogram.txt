@@ -1,0 +1,26 @@
+Antibiotic	Laboratory typing method	Laboratory typing method version or reagent	Laboratory typing platform	Measurement	Measurement sign	Measurement units	Resistance phenotype	Testing standard	Vendor
+amikacin	MIC			1	<=	mg/L	susceptible	CLSI	
+amoxicillin-clavulanic acid	MIC			32/16	>	mg/L	resistant	CLSI	
+ampicillin	MIC			32	>	mg/L	resistant	CLSI	
+ampicillin-sulbactam	MIC			32/16	>	mg/L	resistant	CLSI	
+aztreonam	MIC			32	==	mg/L	resistant	CLSI	
+cefazolin	MIC			8	>	mg/L	resistant	CLSI	
+cefepime	MIC			32	>	mg/L	resistant	CLSI	
+cefotaxime	MIC			64	>	mg/L	resistant	CLSI	
+cefoxitin	MIC			16	>	mg/L	resistant	CLSI	
+ceftazidime	MIC			128	>	mg/L	resistant	CLSI	
+ceftriaxone	MIC			32	>	mg/L	resistant	CLSI	
+ciprofloxacin	MIC			8	>	mg/L	resistant	CLSI	
+colistin	MIC			0.5	==	mg/L	not defined	CLSI	
+doripenem	MIC			8	>	mg/L	resistant	CLSI	
+ertapenem	MIC			8	>	mg/L	resistant	CLSI	
+gentamicin	MIC			1	==	mg/L	susceptible	CLSI	
+imipenem	MIC			16	==	mg/L	resistant	CLSI	
+levofloxacin	MIC			8	>	mg/L	resistant	CLSI	
+meropenem	MIC			8	>	mg/L	resistant	CLSI	
+piperacillin-tazobactam	MIC			128/4	>	mg/L	resistant	CLSI	
+polymyxin B	MIC			1	==	mg/L	not defined	CLSI	
+tetracycline	MIC			32	>	mg/L	resistant	CLSI	
+tigecycline	MIC			0.5	<=	mg/L	susceptible	CLSI	
+tobramycin	MIC			1	==	mg/L	susceptible	CLSI	
+trimethoprim-sulfamethoxazole	MIC			8/152	>	mg/L	resistant	CLSI	

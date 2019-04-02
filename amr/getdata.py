@@ -38,13 +38,8 @@ for child in masterproject:
                 grandchild_result['Title'] = title_
                 grandchild_result['SlaveBioProject'] = link.attrib['accession']
                 grandchild_result['MasterBioProject'] = master_bioproject
-                # print(samn.attrib)
                 grandchild_result.update(samn.attrib)
-                # print(grandchild_result)
                 grandchild_result = pd.DataFrame([grandchild_result])
-                # print(grandchild_result)
-                # print(grandchild_result)
-                # print("samn.attrib", samn.attrib)
                 results = pd.concat([grandchild_result, results],
                                     ignore_index=True,
                                     sort=False)
@@ -56,59 +51,18 @@ for child in masterproject:
                                stdout=PIPE,
                                stderr=PIPE)
                 samn_tabl = proc_d.communicate()[0].decode("UTF-8")
-                print(samn_tabl)
                 samn_tabl_xml = ET.fromstring(samn_tabl)
-                # print(samn_tabl_xml)
-                antibiogram = None
-                for header in samn_tabl_xml.iter('Header'):
-                    antibiogram = pd.DataFrame(columns = [colname.text for colname in header.iter('Cell')])
-                    # print(colnames)
-                        # antibiogram[colname.text].append([])
-                print(antibiogram)
-                # print(samn_tabl_xml)
-
-                # result['BioSample'] = samn.attrib['biosample_id']
-
-                # for text in sublink.iter():
-                #     print(text)
-        #     print(help(grandchild))
-            # sys.exit()
-            # for docsum in grandchild.findall('DocumentSummary'):
-            #     print(docsum.attr)
-
+                antibiograms = []
+                headers = None
+                counter = 0
+                while counter < 1:
+                    for header in samn_tabl_xml.iter('Header'):
+                        headers = [colname.text for colname in header.iter('Cell')]
+                        counter += 1
+                for rown, rowvals in enumerate(samn_tabl_xml.iter('Row')):
+                    minidf = pd.DataFrame([dict(zip(headers, [value.text for value in rowvals.iter('Cell')]))])
+                    antibiograms.append(minidf)
+                antibiogram = pd.concat(antibiograms)
+                with open(f"{samn.attrib['biosample_id']}_antibiogram.txt", "w") as abgout:
+                    antibiogram.to_csv(abgout, sep = '\t', mode = 'w', index=False)
 results.to_csv(SLAVEPRJs)
-    # result = pd.DataFrame(result)
-    # print(result)
-            # print(grandchild.tag)
-    # print(projectlinks.tag, projectlinks.attrib)
-
-
-# for slaveprojects in masterproject.findall('DocumentSummary'):
-#     for slaveproject in slaveprojects.iter('ProjectLinks'):
-#         print(slaveproject.tag)
-    
-
-# print(masterproject)
-# for docsum in masterproject:
-#     for recordset in docsum:
-#         print(recordset.attrib)
-#     result = defaultdict(list)
-#     result['Master'] = master_bioproject
-#     print(projectlink)
-#     for project in slaveproject:
-#         print(project)
-#         result['Title'] = element.attrib('Title')    
-#     for element in child.iter('ProjectIDRef'):
-#         print(element.attrib['accession'])
-#         result['SlaveAccessions'].append(element.attrib['accession'])
-#     print(result)
-#         print(result)
-#         results[]
-#         proc1 = Popen(shlex.split(f"{cmd1} {slave_bioproject}"), stdout = PIPE)
-#         proc2 = Popen(shlex.split(f"{cmd3}"), stdin=proc1.stdout, stdout=PIPE)
-#         root_of_slave = ET.fromstring(proc2.communicate()[0].decode("UTF-8"))
-#         for cousin in root_of_slave:
-#             for element_slave in cousin.iter('LocusTagPrefix'):
-#                 print(element_slave.attrib)
-
-
