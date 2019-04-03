@@ -51,10 +51,35 @@ for child in masterproject:
                                stdout=PIPE,
                                stderr=PIPE)
                 samn_tabl = proc_d.communicate()[0].decode("UTF-8")
+                print(samn_tabl)
                 samn_tabl_xml = ET.fromstring(samn_tabl)
+                panel_id = None
+
+                for attributes_ in samn_tabl_xml.iter("Attribute"):
+                    if "panel_id" in attributes_.attrib.values():
+                        print("Panel_id", attributes_.text)
+                    elif "strain" in attributes_.attrib.values():
+                        print("Strain:", attributes_.text)
+                    print(attributes_.tag, attributes_.text)
+                # print(samn_tabl_xml.attrib)
+                # for child_ in samn_tabl_xml:
+                #     print(child_)
+                # for attributes_ in samn_tabl_xml.iterfind("panel_id"):
+                #     print(attributes_)
+                    # for attribute_ in attributes_.findall("panel_id"):
+                    #     print(attribute_)
+                    # print(attributes_.attrib["attribute_name"].)
+                    # for attribute_ in attributes_:
+                    #     print(attribute_)
+                    # print(attribute_.Attributes)
+                    # if "panel_id" in attribute_.attrib:
+                    #     print(attribute_.attrib["panel_id"])
                 antibiograms = []
                 headers = None
                 counter = 0
+                import sys
+                sys.exit()
+
                 while counter < 1:
                     for header in samn_tabl_xml.iter('Header'):
                         headers = [colname.text for colname in header.iter('Cell')]
