@@ -27,7 +27,7 @@ def hit_ar(target):
 
 from parser import HTMLTableParser
 import urllib.request
-numbers = pd.read_csv("amr/ARnumbers.txt", sep="\t", header=0, index_col=1)
+numbers = pd.read_csv("amr/ARnumbers.tab", sep="\t", header=0, index_col=1)
 print(numbers)
 basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
 targets = [f"{basetarget}{i}" for i in numbers.BANK]
