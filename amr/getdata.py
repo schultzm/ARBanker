@@ -23,7 +23,11 @@ def hit_ar(target):
     p.feed(xhtml)
     for index, tabl in enumerate(p.tables[0:3]):
         if index == 0:
-            return tabl
+            print('tabl', tabl)
+            headers = tabl.pop(0)
+            df = pd.DataFrame(tabl, columns=headers)
+            print("df", df)
+            return df
 
 from parser import HTMLTableParser
 import urllib.request
@@ -33,7 +37,7 @@ basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
 targets = [f"{basetarget}{i}" for i in numbers.BANK]
 # pool = Pool(2)
 results = Pool(cpu_count()).map(hit_ar, targets)
-print(results)
+# print(results)
 import sys
 sys.exit()
 
