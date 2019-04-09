@@ -10,6 +10,7 @@ import xml.etree.ElementTree as ET #https://docs.python.org/3.7/library/xml.etre
 import pandas as pd
 from collections import defaultdict
 from multiprocessing import Pool, cpu_count
+import re
 
 def hit_ar(target):
     # get website content
@@ -23,6 +24,9 @@ def hit_ar(target):
     p.feed(xhtml)
     for index, tabl in enumerate(p.tables[0:3]):
         if index == 0:
+            table = [(re.sub(' +', ' ', (rw[0].replace('\n', '').replace('\r', '').replace(' # ', ': ').replace(' #', '')))) for rw in list(filter(None, [list(filter(None, row)) for row in tabl]))]
+            for row in table:
+                print(row)
             return tabl
 
 from parser import HTMLTableParser
