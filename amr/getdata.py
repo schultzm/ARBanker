@@ -37,7 +37,7 @@ basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
 targets = [f"{basetarget}{i}" for i in numbers.BANK]
 # pool = Pool(2)
 results = Pool(cpu_count()).map(hit_ar, targets)
-print(results)
+# print(results)
 import sys
 sys.exit()
 
