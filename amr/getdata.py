@@ -11,23 +11,23 @@ import pandas as pd
 from collections import defaultdict
 from multiprocessing import Pool, cpu_count
 import re
+from pathlib import Path
+
 
 def hit_ar(params):
     target, bank_n = params
-    print(target, bank_n)
+    bank_n = str("{:03d}".format(bank_n))
+    mdata = Path.cwd() / f'../results/Metadata/{bank_n}.tab'
+    mic = Path.cwd() / f'../results/MIC/{bank_n}.tab'
+    mmr = Path.cwd() / f'../results/MMR/{bank_n}.tab'
     # get website content
     req = urllib.request.Request(url=target)
     f = urllib.request.urlopen(req)
     xhtml = f.read().decode('utf-8')
-    # print(xhtml)
 
     # instantiate the parser and feed it
     p = HTMLTableParser()
     p.feed(xhtml)
-    bank = None
-    mdata = None
-    mic = None
-    mmr = None
     for index, tabl in enumerate(p.tables[0:3]):
         if index == 0:
             # Add 'species' as a header, filter empty lists and values
@@ -46,41 +46,26 @@ def hit_ar(params):
             table = {i[0].strip(): i[1].strip() for i in table}
             # Create pd.DataFrame()
             table = pd.DataFrame([table], index=None)
-            print()
             # mdata = table
-            outpath = pathlib.Path(f'../scraped/Metadata/')
-            print(outpath)
-
-            # table.to_csv(, sep='\t')
+            table.to_csv(mdata, sep='\t', index=False)
             # return table
         if index == 1:
             table = list(filter(None, [rw for rw in tabl[1:]]))
             table = pd.DataFrame(table[1:], columns=table[0])
-            mic = table
+            table.to_csv(mic, sep='\t', index=False)
+
         if index == 2:
             table = list(filter(None, [rw for rw in tabl[1:]]))
             table = pd.DataFrame(table[1:], columns=table[0])
-            mmr = table
+            table.to_csv(mmr, sep='\t', index=False)
 
-    df_final = pd.concat(df_result, axis=1)
-    df_final = df_final.ffill()
-    print(df_final)
-    # for i in df_final.columns:
-    #     df_final = df_final.ffill() 
-    #     # df_final[i]
-    # df.loc[df.date=='','date'] = np.nan
-    # print(pd.concat(df_result, axis=1))
 from parser import HTMLTableParser
 import urllib.request
 numbers = pd.read_csv("ARnumbers.tab", sep="\t", header=0, index_col=1)
 print(numbers)
 basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
 targets = [(f"{basetarget}{i}", i) for i in numbers.BANK]
-# pool = Pool(2)
-results = Pool(cpu_count()).map(hit_ar, targets)
-# print(results)
-import sys
-sys.exit()
+Pool(cpu_count()).map(hit_ar, targets)
 
 
 
