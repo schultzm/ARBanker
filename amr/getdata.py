@@ -25,16 +25,20 @@ def hit_ar(target):
     for index, tabl in enumerate(p.tables[0:3]):
         if index == 0:
             # Add 'species' as a header, filter empty lists and values
-            table = [re.sub('(?<=\d) +(?=[A-Z])', ', Species: ', rw[0])
+            table = [re.sub('(?<=\d) +(?=[A-Z])', '\tSpecies: ', rw[0])
                      for rw in list(filter(None, [list(filter(None, row)) for row in tabl]))]
             # split up further
-            table = [rw.replace('Positive  Carba', 'Positive,Carba').replace('Negative  Carba', 'Negative,Carba') for rw in table]
-            # get rid of the hash characters
-            table = [item.replace(' #', '').replace('\r\n', ':').split(',') for item in table]
-            # Flatten the table
+            table = [rw.replace('Positive  Carba', 'Positive\tCarba').replace('Negative  Carba', 'Negative\tCarba') for rw in table]
+            # print(table)
+            # remove hash characters, sub : for , and split on ,
+            table = [item.replace(' #', '').replace('\r\n', ':').split('\t') for item in table]
+            print(table)
+            # Flatten the 2d list
             table = [item for sublist in table for item in sublist]
-            # put commas in place
-            table = [rw.replace(':', ',') for rw in table]
+            # put commas in place, split on comma
+            table = [rw.replace(':', '\t').split('\t') for rw in table]
+            table = {i[0].strip(): i[1].strip() for i in table}
+            table = pd.DataFrame([table], index=None)
             # table = {}
             print(table)
             #[re.sub('(d )s(?=d)', '$1 ', re.sub(' +', ' ', (rw[0].replace('\n', '').replace('\r', '').replace(' # ', ': ').replace(' #', '')))) for rw in list(filter(None, [list(filter(None, row)) for row in tabl]))]
