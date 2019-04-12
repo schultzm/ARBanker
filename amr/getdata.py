@@ -52,11 +52,20 @@ def hit_ar(params):
         if index == 1:
             table = list(filter(None, [rw for rw in tabl[1:]]))
             table = pd.DataFrame(table[1:], columns=table[0])
+            table['AR Bank'] = bank_n
+            cols = ['AR Bank'] + [i for i in table.columns if i != 'AR Bank']
+            table = table[cols]
+            table = table.ffill()
             table.to_csv(mic, sep='\t', index=False)
+            ## DRY convert the above repeated lines to a function, and for index==2
 
         if index == 2:
             table = list(filter(None, [rw for rw in tabl[1:]]))
             table = pd.DataFrame(table[1:], columns=table[0])
+            table['AR Bank'] = bank_n
+            cols = ['AR Bank'] + [i for i in table.columns if i != 'AR Bank']
+            table = table[cols]
+            table = table.ffill()
             table.to_csv(mmr, sep='\t', index=False)
 
 from parser import HTMLTableParser
