@@ -24,14 +24,14 @@ def hit_ar(target):
     p.feed(xhtml)
     for index, tabl in enumerate(p.tables[0:3]):
         if index == 0:
-            table = [(re.sub(' +', ' ', (rw[0].replace('\n', '').replace('\r', '').replace(' # ', ': ').replace(' #', '')))) for rw in list(filter(None, [list(filter(None, row)) for row in tabl]))]
+            table = [re.sub('(d )s(?=d)', '$1 ', re.sub(' +', ' ', (rw[0].replace('\n', '').replace('\r', '').replace(' # ', ': ').replace(' #', '')))) for rw in list(filter(None, [list(filter(None, row)) for row in tabl]))]
             for row in table:
                 print(row)
             return tabl
 
 from parser import HTMLTableParser
 import urllib.request
-numbers = pd.read_csv("amr/ARnumbers.tab", sep="\t", header=0, index_col=1)
+numbers = pd.read_csv("ARnumbers.tab", sep="\t", header=0, index_col=1)
 print(numbers)
 basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
 targets = [f"{basetarget}{i}" for i in numbers.BANK]
