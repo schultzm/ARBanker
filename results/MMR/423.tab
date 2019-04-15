@@ -1,0 +1,11 @@
+Category	Gene	AR Bank
+Aminoglycoside	aac(6')Ib-cr,aadA1,aadA16	423
+Beta-lactam	OXA-1	423
+Phenicols	catA1	423
+Quinolone	gyrA83(M),parC80(M),QnrB6	423
+Rifampicin	ARR-3	423
+Sulfonamides	sul1	423
+Tetracyclines	tet(A),tet(B)	423
+Trimethoprim	dfrA1,dfrA27	423
+	dfrA1,dfrA27	423
+Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	dfrA1,dfrA27	423

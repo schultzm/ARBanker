@@ -1,0 +1,27 @@
+AR Bank	Drug	MIC (μg/ml)	INT
+140	Amikacin	>64	R
+140	Ampicillin	>32	R
+140	Ampicillin/sulbactam 1	>32	R
+140	Aztreonam	>64	R
+140	Cefazolin	>16	R
+140	Cefepime	>32	R
+140	Cefotaxime	>128	R
+140	Cefotaxime/clavulanic acid 1	128	---
+140	Cefoxitin	>16	R
+140	Ceftazidime	>128	R
+140	Ceftazidime/clavulanic acid 1	128	---
+140	Ceftriaxone	>32	R
+140	Ciprofloxacin	>8	R
+140	Colistin	0.5	---
+140	Doripenem	4	R
+140	Ertapenem	>8	R
+140	Gentamicin	>16	R
+140	Imipenem	2	I
+140	Imipenem+chelators 2	4	---
+140	Levofloxacin	>8	R
+140	Meropenem	4	R
+140	Piperacillin/tazobactam 1	>128	R
+140	Tetracycline	>32	R
+140	Tigecycline 3	2	S
+140	Tobramycin	>16	R
+140	Trimethoprim/sulfamethoxazole 1	>8	R

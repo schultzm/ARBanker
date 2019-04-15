@@ -1,0 +1,10 @@
+AR Bank	Category	Gene
+158	Aminoglycoside	aac(3)-IId,aac(6')Ib-cr,strA,strB
+158	Beta-lactam	NDM-1 ,CTX-M-15,OXA-1,TEM-1B
+158	Fosfomycin	fosA
+158	Quinolone	oqxA,oqxB
+158	Sulfonamides	sul2
+158	Tetracyclines	tet(B)
+158	Trimethoprim	dfrA14,dfrA30
+158		dfrA14,dfrA30
+158	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	dfrA14,dfrA30

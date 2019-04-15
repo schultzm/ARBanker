@@ -1,0 +1,10 @@
+AR Bank	Category	Gene
+015	Aminoglycoside	aac(3)-IId,aac(6')Ib-cr,aadA5,strA,strB
+015	Beta-lactam	CTX-M-15,OXA-1,TEM-1B
+015	Macrolide-Lincosamide-Streptogramin	mph(A)
+015	Sulfonamides	sul1,sul2
+015	Tetracyclines	tet(A),tet(B)
+015	Trimethoprim	dfrA17
+015	Truncated Porin	OmpF
+015		OmpF
+015	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	OmpF

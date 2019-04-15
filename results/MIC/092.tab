@@ -1,0 +1,16 @@
+AR Bank	Drug	MIC (μg/ml)	INT
+092	Amikacin	>64	R
+092	Aztreonam	32	R
+092	Cefepime	>32	R
+092	Ceftazidime	>128	R
+092	Ceftazidime/avibactam 1	>16	R
+092	Ciprofloxacin	>8	R
+092	Colistin	1	S
+092	Doripenem	>8	R
+092	Gentamicin	>16	R
+092	Imipenem	64	R
+092	Imipenem+chelators 2	4	---
+092	Levofloxacin	>8	R
+092	Meropenem	>8	R
+092	Piperacillin/tazobactam 1	>128	R
+092	Tobramycin	>16	R

@@ -1,0 +1,5 @@
+AR Bank	Category	Gene
+043	Beta-lactam	SHV-12
+043	Quinolone	oqxA,oqxB
+043		oqxA,oqxB
+043	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	oqxA,oqxB

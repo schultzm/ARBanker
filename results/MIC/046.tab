@@ -1,0 +1,29 @@
+AR Bank	Drug	MIC (μg/ml)	INT
+046	Amikacin	16	S
+046	Ampicillin	>32	R
+046	Ampicillin/sulbactam 1	>32	R
+046	Aztreonam	64	R
+046	Cefazolin	>16	R
+046	Cefepime	>32	R
+046	Cefotaxime	>128	R
+046	Cefotaxime/clavulanic acid 1	>32	---
+046	Cefoxitin	>16	R
+046	Ceftazidime	>128	R
+046	Ceftazidime/avibactam 1	>16	R
+046	Ceftazidime/clavulanic acid 1	>64	---
+046	Ceftolozane/tazobactam 1	>16	R
+046	Ceftriaxone	>32	R
+046	Ciprofloxacin	>8	R
+046	Colistin	4	---
+046	Doripenem	>8	R
+046	Ertapenem	>8	R
+046	Gentamicin	>16	R
+046	Imipenem	64	R
+046	Imipenem+chelators 2	0.5	---
+046	Levofloxacin	>8	R
+046	Meropenem	>8	R
+046	Piperacillin/tazobactam 1	>128	R
+046	Tetracycline	>32	R
+046	Tigecycline 3	4	I
+046	Tobramycin	>16	R
+046	Trimethoprim/sulfamethoxazole 1	>8	R

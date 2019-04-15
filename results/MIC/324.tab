@@ -1,0 +1,10 @@
+Drug	MIC (μg/ml)	INT	AR Bank
+Amphotericin B 1	0.25	---	324
+Anidulafungin	4	R	324
+Caspofungin	16	R	324
+Fluconazole	8	SDD	324
+Flucytosine	0.12	---	324
+Itraconazole	0.5	---	324
+Micafungin	2	R	324
+Posaconazole	0.5	---	324
+Voriconazole	0.25	---	324

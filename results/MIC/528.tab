@@ -1,0 +1,18 @@
+Drug	MIC (μg/ml)	INT	AR Bank
+Amikacin	8	S	528
+Aztreonam	64	R	528
+Cefepime	16	I	528
+Ceftazidime	64	R	528
+Ceftazidime/avibactam 1	4	S	528
+Ceftolozane/tazobactam 1	4	S	528
+Ciprofloxacin	>8	R	528
+Colistin	1	S	528
+Doripenem	8	R	528
+Gentamicin	>16	R	528
+Imipenem	32	R	528
+Imipenem/relebactam 1	2	---	528
+Imipenem+chelators 2	32	---	528
+Levofloxacin	>8	R	528
+Meropenem	8	R	528
+Piperacillin/tazobactam 1	>128	R	528
+Tobramycin	>16	R	528

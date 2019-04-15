@@ -1,0 +1,10 @@
+AR Bank	Category	Gene
+157	Aminoglycoside	aac(6')-Ib,aadA1,aadA2,armA,rmtC
+157	Beta-lactam	NDM-1 ,CTX-M-15,OXA-9,TEM-1B
+157	Macrolide-Lincosamide-Streptogramin	erm(B),mph(E),msr(E)
+157	Phenicols	catA1
+157	Quinolone	QnrB34
+157	Trimethoprim	dfrA12
+157	Truncated Porin	OmpF
+157		OmpF
+157	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	OmpF

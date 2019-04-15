@@ -1,0 +1,9 @@
+AR Bank	Drug	MIC (μg/ml)	INT
+412	Azithromycin	0.03	WT
+412	Ciprofloxacin	0.5	S
+412	Erythromycin	0.5	S
+412	Florfenicol	4	WT
+412	Gentamicin	0.5	WT
+412	Nalidixic acid	8	WT
+412	Telithromycin	2	---
+412	Tetracycline	>64	R

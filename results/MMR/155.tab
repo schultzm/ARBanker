@@ -1,0 +1,8 @@
+AR Bank	Category	Gene
+155	Aminoglycoside	aadA1,aadA5
+155	Beta-lactam	KPC-6
+155	Sulfonamides	sul1,sul2
+155	Tetracyclines	tet(J)
+155	Trimethoprim	dfrA1,dfrA17
+155		dfrA1,dfrA17
+155	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	dfrA1,dfrA17

@@ -1,0 +1,11 @@
+AR Bank	Category	Gene
+128	Aminoglycoside	aac(3)-IIa,aadA5,rmtC,strA,strB
+128	Beta-lactam	NDM-1 ,CMY-6,CTX-M-15,OXA-2
+128	Macrolide-Lincosamide-Streptogramin	mph(A)
+128	Phenicols	catA1
+128	Sulfonamides	sul1
+128	Tetracyclines	tet(B)
+128	Trimethoprim	dfrA17,dfrA29
+128	Truncated Porin	OmpF
+128		OmpF
+128	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	OmpF

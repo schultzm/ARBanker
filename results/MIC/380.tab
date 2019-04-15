@@ -1,0 +1,29 @@
+Drug	MIC (μg/ml)	INT	AR Bank
+Amikacin	< =1	S	380
+Ampicillin	>32	R	380
+Ampicillin/sulbactam 1	>32	R	380
+Aztreonam	>64	R	380
+Cefazolin	>8	R	380
+Cefepime	>32	R	380
+Cefotaxime	32	R	380
+Cefotaxime/clavulanic acid 1	16	---	380
+Cefoxitin	>16	R	380
+Ceftazidime	4	S	380
+Ceftazidime/avibactam 1	1	S	380
+Ceftazidime/clavulanic acid 1	2	---	380
+Ceftolozane/tazobactam 1	4	I	380
+Ceftriaxone	>32	R	380
+Ciprofloxacin	0.5	S	380
+Colistin	< =0.25	---	380
+Doripenem	0.5	S	380
+Ertapenem	4	R	380
+Gentamicin	< =0.25	S	380
+Imipenem	< =0.5	S	380
+Imipenem+chelators 2	0.5	---	380
+Levofloxacin	0.25	S	380
+Meropenem	1	S	380
+Piperacillin/tazobactam 1	>128	R	380
+Tetracycline	8	I	380
+Tigecycline 3	2	S	380
+Tobramycin	< =0.5	S	380
+Trimethoprim/sulfamethoxazole 1	< =0.5	S	380

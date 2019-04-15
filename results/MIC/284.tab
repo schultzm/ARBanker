@@ -1,0 +1,21 @@
+AR Bank	Drug	MIC (μg/ml)	INT
+284	Amikacin	>64	R
+284	Ampicillin/sulbactam 1	>32	R
+284	Cefepime	32	R
+284	Cefotaxime	64	R
+284	Ceftazidime	32	R
+284	Ceftriaxone	>32	R
+284	Ciprofloxacin	>8	R
+284	Colistin	1	S
+284	Doripenem	>8	R
+284	Gentamicin	>16	R
+284	Imipenem	64	R
+284	Imipenem+chelators 2	>32	---
+284	Levofloxacin	>8	R
+284	Meropenem	>8	R
+284	Minocycline	< =4	S
+284	Piperacillin/tazobactam 1	>128	R
+284	Tetracycline	16	R
+284	Tigecycline	1	---
+284	Tobramycin	>16	R
+284	Trimethoprim/sulfamethoxazole 1	>8	R

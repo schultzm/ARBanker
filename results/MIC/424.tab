@@ -1,0 +1,14 @@
+Drug	MIC (μg/ml)	INT	AR Bank
+Amoxicillin/clavulanic acid 1	16	I	424
+Ampicillin	>32	R	424
+Azithromycin	>32	---	424
+Cefoxitin	4	S	424
+Ceftriaxone	< =0.25	S	424
+Chloramphenicol	>32	R	424
+Ciprofloxacin	< =0.015	S	424
+Gentamicin	1	S	424
+Nalidixic acid	2	S	424
+Streptomycin	64	---	424
+Sulfisoxazole	>256	R	424
+Tetracycline	>32	R	424
+Trimethoprim/sulfamethoxazole 1	>4	R	424

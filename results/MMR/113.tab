@@ -1,0 +1,11 @@
+AR Bank	Category	Gene
+113	Aminoglycoside	aac(6')-Ib,aph(3')-Ia,aph(4)-Ia
+113	Beta-lactam	KPC-3 ,SHV-11
+113	Macrolide-Lincosamide-Streptogramin	mph(A)
+113	Phenicols	catA1,cmlA1
+113	Quinolone	oqxA,oqxB
+113	Sulfonamides	sul1,sul3
+113	Trimethoprim	dfrA12
+113	Truncated Porin	OmpK35,OmpK36
+113		OmpK35,OmpK36
+113	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	OmpK35,OmpK36

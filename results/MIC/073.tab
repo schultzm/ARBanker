@@ -1,0 +1,26 @@
+AR Bank	Drug	MIC (μg/ml)	INT
+073	Amikacin	< =1	S
+073	Ampicillin	32	R
+073	Ampicillin/sulbactam 1	32	R
+073	Aztreonam	4	S
+073	Cefazolin	>8	R
+073	Cefepime	< =0.5	S
+073	Cefotaxime	64	R
+073	Cefoxitin	>16	R
+073	Ceftazidime	32	R
+073	Ceftazidime/avibactam 1	< =0.5	S
+073	Ceftriaxone	32	R
+073	Ciprofloxacin	< =0.25	S
+073	Colistin	>4	---
+073	Doripenem	< =0.12	S
+073	Ertapenem	< =0.12	S
+073	Gentamicin	< =0.25	S
+073	Imipenem	< =0.5	S
+073	Imipenem+chelators 2	< =0.25	---
+073	Levofloxacin	0.25	S
+073	Meropenem	< =0.12	S
+073	Piperacillin/tazobactam 1	32	I
+073	Tetracycline	4	S
+073	Tigecycline 3	2	S
+073	Tobramycin	< =0.25	S
+073	Trimethoprim/sulfamethoxazole 1	< =0.5	S

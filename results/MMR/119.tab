@@ -1,0 +1,9 @@
+Category	Gene	AR Bank
+Aminoglycoside	aadA1,rmtC,strA,strB	119
+Beta-lactam	NDM-1 ,CMY-6,CTX-M-15,OXA-1,OXA-2,OXA-9,TEM-1B	119
+Phenicols	catA1	119
+Sulfonamides	sul1	119
+Trimethoprim	dfrA29	119
+Truncated Porin	OmpF	119
+	OmpF	119
+Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	OmpF	119
