@@ -61,6 +61,9 @@ def render_table(tabl, label, index, index_name, bank_n):
         sys.stderr.write(f"No data to write for AR Bank number {bank_n}.\n")
 
 def hit_ar(params):
+    """
+    Query the url.
+    """
     from .utils.parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
     from urllib.request import Request, urlopen
 
@@ -84,8 +87,6 @@ def hit_ar(params):
     for index, tabl in enumerate(p.tables[0:3]):
         if index == 0:
             render_table(tabl, mdata, index, index_name, bank_n)
-        # return table
-
         if index == 1:
             render_table(tabl, mic, index, index_name, bank_n)
         if index == 2:
@@ -140,7 +141,6 @@ def main():
     if not args.subparser_name:
         parser.print_help()
     elif args.subparser_name == 'grab':
-        numbers = args.bank_no
         basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
         targets = (f"{basetarget}{args.bank_no}",
                    args.bank_no,
