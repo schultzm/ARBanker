@@ -2,10 +2,11 @@
 validation for MDU
 
 
-Do 
+After installing pip3, install `pipenv` with `pip3 install pipenv`
+
+## Quick start
 
 ```
-pip3 install pipenv
 pipenv shell
 pip3 install git+https://github.com/schultzm/ARBanker.git
 arbanker grab
