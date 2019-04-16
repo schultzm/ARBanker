@@ -1,8 +1,0 @@
-AR Bank	Category	Gene
-078	Aminoglycoside	aac(3)-IIa,aadA11
-078	Beta-lactam	ADC-25,OXA-71,SHV-5
-078	Macrolide-Lincosamide-Streptogramin	mph(E),msr(E)
-078	Sulfonamides	sul1
-078	Trimethoprim	dfrB1
-078		dfrB1
-078	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	dfrB1

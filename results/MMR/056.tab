@@ -1,7 +1,0 @@
-AR Bank	Category	Gene
-056	Aminoglycoside	aac(3)-IIa,aph(3')-Ic,strA,strB
-056	Beta-lactam	OXA-23,OXA-66
-056	Macrolide-Lincosamide-Streptogramin	mph(E),msr(E)
-056	Sulfonamides	sul2
-056		sul2
-056	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	sul2

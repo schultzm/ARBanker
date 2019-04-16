@@ -1,8 +1,0 @@
-AR Bank	Category	Gene
-108	Aminoglycoside	aac(3)-Id,aadA2
-108	Beta-lactam	VIM-2 ,OXA-4,OXA-50,PAO
-108	Phenicols	cmlA1
-108	Tetracyclines	tet(G)
-108	Trimethoprim	dfrB5
-108		dfrB5
-108	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	dfrB5

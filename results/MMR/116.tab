@@ -1,8 +1,0 @@
-AR Bank	Category	Gene
-116	Aminoglycoside	aac(6')-If,aadA1,aadB
-116	Beta-lactam	KPC-2 ,CMY-76,CMY-79
-116	Sulfonamides	sul1,sul2
-116	Trimethoprim	dfrA1
-116	Truncated Porin	OmpF
-116		OmpF
-116	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	OmpF

@@ -1,8 +1,0 @@
-AR Bank	Category	Gene
-291	Aminoglycoside	aph(3')-Ic,aph(3')-VIa,armA,strA,strB
-291	Beta-lactam	ADC-25,OXA-23,OXA-66,TEM-1D
-291	Macrolide-Lincosamide-Streptogramin	mph(E),msr(E)
-291	Phenicols	catB8
-291	Sulfonamides	sul1
-291		sul1
-291	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	sul1

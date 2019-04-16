@@ -1,6 +1,0 @@
-AR Bank	Category	Gene
-417	Aminoglycoside	aac(6')-aph(2''),ant(6)-la,aph(3')-III
-417	Quinolone	gyrA86(M)
-417	Tetracyclines	tet(O)
-417		tet(O)
-417	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	tet(O)

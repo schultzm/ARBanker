@@ -75,7 +75,46 @@ def main():
     """
     The main routine.
     """
-    from parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
+
+    import argparse
+    parser = argparse.ArgumentParser(
+        prog='arbanker',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    subparser_args1 = argparse.ArgumentParser(add_help=False)
+    subparser_args1.add_argument(
+        "-b",
+        "--bank_no",
+        help="""CDC AR Isolate Bank number (e.g., 001 or 1)""",
+        default=None,
+        required=True)
+
+    subparser_modules = parser.add_subparsers(
+        title="Sub-commands help", help="", metavar="", dest="subparser_name")
+    subparser_modules.add_parser(
+        "grab",
+        help="""Grab the metadata from the CDC's AR Isolate bank.""",
+        description="Start the web-scraping for given bank number.",
+        parents=[subparser_args1],
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+    subparser_modules.add_parser(
+        "version", help="Print version.", description="Print version.")
+    subparser_modules.add_parser(
+        "depcheck", help="Check dependencies are in path.  Requires Rpy2.",
+        description="Check dependencies.")
+    subparser_modules.add_parser(
+        "test", help="Run test suite.",
+        description="Run test suite.",
+        parents=[subparser_args1],
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+
+    args = parser.parse_args()
+
+    if not args.subparser_name:
+        parser.print_help()
+
+
+    from utils.parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
     from urllib.request import Request, urlopen
     numbers = pd.read_csv("ARnumbers.tab", sep="\t", header=0, index_col=1)
     print(numbers)
