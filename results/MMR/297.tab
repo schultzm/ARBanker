@@ -1,7 +1,7 @@
-Category	Gene	AR Bank
-Aminoglycoside	strA,strB	297
-Beta-lactam	ADC-25,OXA-23,OXA-66	297
-Macrolide-Lincosamide-Streptogramin	mph(E),msr(E)	297
-Sulfonamides	sul2	297
-	sul2	297
-Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	sul2	297
+AR Bank	Category	Gene
+297	Aminoglycoside	strA,strB
+297	Beta-lactam	ADC-25,OXA-23,OXA-66
+297	Macrolide-Lincosamide-Streptogramin	mph(E),msr(E)
+297	Sulfonamides	sul2
+297		sul2
+297	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	sul2

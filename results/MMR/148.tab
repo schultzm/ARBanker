@@ -1,10 +1,10 @@
-Category	Gene	AR Bank
-Aminoglycoside	aac(3)-IId,rmtC,strA,strB	148
-Beta-lactam	NDM-1 ,CMY-6,CTX-M-15,OXA-1,SHV-11,TEM-1B	148
-Macrolide-Lincosamide-Streptogramin	mph(A)	148
-Quinolone	oqxA,QnrB7	148
-Sulfonamides	sul1,sul2	148
-Tetracyclines	tet(A)	148
-Trimethoprim	dfrA14	148
-	dfrA14	148
-Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	dfrA14	148
+AR Bank	Category	Gene
+148	Aminoglycoside	aac(3)-IId,rmtC,strA,strB
+148	Beta-lactam	NDM-1 ,CMY-6,CTX-M-15,OXA-1,SHV-11,TEM-1B
+148	Macrolide-Lincosamide-Streptogramin	mph(A)
+148	Quinolone	oqxA,QnrB7
+148	Sulfonamides	sul1,sul2
+148	Tetracyclines	tet(A)
+148	Trimethoprim	dfrA14
+148		dfrA14
+148	Disclaimer: The resistance mechanisms listed were identified by analysis of whole genome sequence using the ResFinder database (last updated June 2, 2016 and accessed on October 25, 2016). This analysis does not include mutations that may result in antibiotic resistance or resistance determinants added to newer versions of the ResFinder database or other antimicrobial resistance gene databases. Sequence accession numbers have been provided so that users can analyze the data on their own if so desired.	dfrA14

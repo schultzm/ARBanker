@@ -1,10 +1,10 @@
-Drug	MIC (μg/ml)	INT	AR Bank
-Amphotericin B 1	0.38	---	381
-Anidulafungin	0.25	---	381
-Caspofungin	0.125	---	381
-Fluconazole	4	---	381
-Flucytosine	2	---	381
-Itraconazole	0.125	---	381
-Micafungin	0.125	---	381
-Posaconazole	0.06	---	381
-Voriconazole	0.03	---	381
+AR Bank	Drug	MIC (μg/ml)	INT
+381	Amphotericin B 1	0.38	---
+381	Anidulafungin	0.25	---
+381	Caspofungin	0.125	---
+381	Fluconazole	4	---
+381	Flucytosine	2	---
+381	Itraconazole	0.125	---
+381	Micafungin	0.125	---
+381	Posaconazole	0.06	---
+381	Voriconazole	0.03	---

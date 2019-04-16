@@ -1,29 +1,29 @@
-Drug	MIC (μg/ml)	INT	AR Bank
-Amikacin	2	S	377
-Ampicillin	>32	R	377
-Ampicillin/sulbactam 1	>32	R	377
-Aztreonam	>64	R	377
-Cefazolin	>8	R	377
-Cefepime	>32	R	377
-Cefotaxime	4	R	377
-Cefotaxime/clavulanic acid 1	< =0.25	---	377
-Cefoxitin	8	S	377
-Ceftazidime	4	S	377
-Ceftazidime/avibactam 1	< =0.5	S	377
-Ceftazidime/clavulanic acid 1	< =0.5	---	377
-Ceftolozane/tazobactam 1	8	R	377
-Ceftriaxone	>32	R	377
-Ciprofloxacin	>8	R	377
-Colistin	>8	---	377
-Doripenem	8	R	377
-Ertapenem	8	R	377
-Gentamicin	4	S	377
-Imipenem	64	R	377
-Imipenem+chelators 2	>32	---	377
-Levofloxacin	>8	R	377
-Meropenem	8	R	377
-Piperacillin/tazobactam 1	>128	R	377
-Tetracycline	>32	R	377
-Tigecycline 3	4	I	377
-Tobramycin	8	I	377
-Trimethoprim/sulfamethoxazole 1	>8	R	377
+AR Bank	Drug	MIC (μg/ml)	INT
+377	Amikacin	2	S
+377	Ampicillin	>32	R
+377	Ampicillin/sulbactam 1	>32	R
+377	Aztreonam	>64	R
+377	Cefazolin	>8	R
+377	Cefepime	>32	R
+377	Cefotaxime	4	R
+377	Cefotaxime/clavulanic acid 1	< =0.25	---
+377	Cefoxitin	8	S
+377	Ceftazidime	4	S
+377	Ceftazidime/avibactam 1	< =0.5	S
+377	Ceftazidime/clavulanic acid 1	< =0.5	---
+377	Ceftolozane/tazobactam 1	8	R
+377	Ceftriaxone	>32	R
+377	Ciprofloxacin	>8	R
+377	Colistin	>8	---
+377	Doripenem	8	R
+377	Ertapenem	8	R
+377	Gentamicin	4	S
+377	Imipenem	64	R
+377	Imipenem+chelators 2	>32	---
+377	Levofloxacin	>8	R
+377	Meropenem	8	R
+377	Piperacillin/tazobactam 1	>128	R
+377	Tetracycline	>32	R
+377	Tigecycline 3	4	I
+377	Tobramycin	8	I
+377	Trimethoprim/sulfamethoxazole 1	>8	R

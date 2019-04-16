@@ -1,0 +1,10 @@
+AR Bank	Drug	MIC (μg/ml)	INT
+345	Amphotericin B 1	0.38	---
+345	Anidulafungin	0.06	S
+345	Caspofungin	0.06	S
+345	Fluconazole	>256	R
+345	Flucytosine	< 0.12	---
+345	Itraconazole	>16	---
+345	Micafungin	0.06	S
+345	Posaconazole	>16	---
+345	Voriconazole	16	R

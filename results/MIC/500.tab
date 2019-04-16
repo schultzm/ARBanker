@@ -1,0 +1,14 @@
+AR Bank	Drug	MIC (μg/ml)	INT
+500	Ampicillin	128	R
+500	Chloramphenicol	16	I
+500	Daptomycin	4	S
+500	Doxycycline	8	I
+500	High-Level Gentamicin	>500	SYN-R
+500	High-Level Streptomycin	>1000	SYN-R
+500	Levofloxacin	>8	R
+500	Linezolid	2	S
+500	Penicillin	256	R
+500	Quinupristin/dalfopristin 1	1	S
+500	Rifampin	>4	R
+500	Teicoplanin	2	S
+500	Vancomycin	1	S
