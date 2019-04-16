@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-# This script will download metadata from NCBI PRJNA294416
+
+"""
+The purpose of this package is to download data from the CDC's AR Isolate Bank.
+"""
+
+
 
 SLAVEPRJs="slave_bioprojects.txt"
 master_bioproject="PRJNA294416"
