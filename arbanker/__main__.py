@@ -28,6 +28,9 @@ def render_table(tabl, label, index_name, bank_n):
 
 
 def hit_ar(params):
+    from .utils.parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
+    from urllib.request import Request, urlopen
+
     target, bank_n = params
     bank_n = str("{:03d}".format(bank_n))
     mdata = Path.cwd() / f'../results/Metadata/{bank_n}.tab'
@@ -82,11 +85,10 @@ def main():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     subparser_args1 = argparse.ArgumentParser(add_help=False)
     subparser_args1.add_argument(
-        "-b",
-        "--bank_no",
+        "bank_no",
         help="""CDC AR Isolate Bank number (e.g., 001 or 1)""",
-        default=None,
-        required=True)
+        type=int,
+        default=None)
 
     subparser_modules = parser.add_subparsers(
         title="Sub-commands help", help="", metavar="", dest="subparser_name")
@@ -112,15 +114,15 @@ def main():
 
     if not args.subparser_name:
         parser.print_help()
-
-
-    from utils.parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
-    from urllib.request import Request, urlopen
-    numbers = pd.read_csv("ARnumbers.tab", sep="\t", header=0, index_col=1)
-    print(numbers)
-    basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
-    targets = [(f"{basetarget}{i}", i) for i in numbers.BANK]
-    Pool(cpu_count()).map(hit_ar, targets)
+    elif args.subparser_name == 'grab':
+        numbers = args.bank_no
+        print(numbers)
+        basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
+        targets = (f"{basetarget}{args.bank_no}", args.bank_no)
+        hit_ar(targets)
+    elif args.subparser_name == 'version':
+        from .utils.version import Version
+        Version()
 
 
 if __name__ == "__main__":
