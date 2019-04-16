@@ -28,7 +28,7 @@ def render_table(tabl, label, index_name, bank_n):
 
 
 def hit_ar(params):
-    from .utils.parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
+    from ..utils.parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
     from urllib.request import Request, urlopen
 
     target, bank_n = params
