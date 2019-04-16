@@ -1,16 +1,16 @@
-Drug	MIC (μg/ml)	INT	AR Bank
-Amikacin	8	S	456
-Aztreonam	>64	R	456
-Cefepime	>32	R	456
-Ceftazidime	64	R	456
-Ceftazidime/avibactam 1	16	R	456
-Ciprofloxacin	>8	R	456
-Colistin	1	S	456
-Doripenem	>8	R	456
-Gentamicin	4	S	456
-Imipenem	16	R	456
-Imipenem+chelators 2	16	---	456
-Levofloxacin	>8	R	456
-Meropenem	>8	R	456
-Piperacillin/tazobactam 1	64	I	456
-Tobramycin	1	S	456
+AR Bank	Drug	MIC (μg/ml)	INT
+456	Amikacin	8	S
+456	Aztreonam	>64	R
+456	Cefepime	>32	R
+456	Ceftazidime	64	R
+456	Ceftazidime/avibactam 1	16	R
+456	Ciprofloxacin	>8	R
+456	Colistin	1	S
+456	Doripenem	>8	R
+456	Gentamicin	4	S
+456	Imipenem	16	R
+456	Imipenem+chelators 2	16	---
+456	Levofloxacin	>8	R
+456	Meropenem	>8	R
+456	Piperacillin/tazobactam 1	64	I
+456	Tobramycin	1	S

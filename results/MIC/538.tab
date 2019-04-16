@@ -1,29 +1,29 @@
-Drug	MIC (μg/ml)	INT	AR Bank
-Amikacin	< =1	S	538
-Ampicillin	>32	R	538
-Ampicillin/sulbactam 1	>32	R	538
-Aztreonam	< =2	S	538
-Cefazolin	>8	R	538
-Cefepime	2	S	538
-Cefotaxime	< =0.5	S	538
-Cefotaxime/clavulanic acid 1	< =0.25	---	538
-Cefoxitin	8	S	538
-Ceftazidime	< =1	S	538
-Ceftazidime/avibactam 1	< =0.5	S	538
-Ceftazidime/clavulanic acid 1	< =0.5	---	538
-Ceftolozane/tazobactam 1	< =0.5	S	538
-Ceftriaxone	< =1	S	538
-Ciprofloxacin	>8	R	538
-Colistin	8	---	538
-Doripenem	< =0.12	S	538
-Ertapenem	< =0.12	S	538
-Gentamicin	8	I	538
-Imipenem	< =0.5	S	538
-Imipenem+chelators 2	0.5	---	538
-Levofloxacin	>8	R	538
-Meropenem	< =0.12	S	538
-Piperacillin/tazobactam 1	>128	R	538
-Tetracycline	>32	R	538
-Tigecycline 3	< =0.5	S	538
-Tobramycin	8	I	538
-Trimethoprim/sulfamethoxazole 1	>8	R	538
+AR Bank	Drug	MIC (μg/ml)	INT
+538	Amikacin	< =1	S
+538	Ampicillin	>32	R
+538	Ampicillin/sulbactam 1	>32	R
+538	Aztreonam	< =2	S
+538	Cefazolin	>8	R
+538	Cefepime	2	S
+538	Cefotaxime	< =0.5	S
+538	Cefotaxime/clavulanic acid 1	< =0.25	---
+538	Cefoxitin	8	S
+538	Ceftazidime	< =1	S
+538	Ceftazidime/avibactam 1	< =0.5	S
+538	Ceftazidime/clavulanic acid 1	< =0.5	---
+538	Ceftolozane/tazobactam 1	< =0.5	S
+538	Ceftriaxone	< =1	S
+538	Ciprofloxacin	>8	R
+538	Colistin	8	---
+538	Doripenem	< =0.12	S
+538	Ertapenem	< =0.12	S
+538	Gentamicin	8	I
+538	Imipenem	< =0.5	S
+538	Imipenem+chelators 2	0.5	---
+538	Levofloxacin	>8	R
+538	Meropenem	< =0.12	S
+538	Piperacillin/tazobactam 1	>128	R
+538	Tetracycline	>32	R
+538	Tigecycline 3	< =0.5	S
+538	Tobramycin	8	I
+538	Trimethoprim/sulfamethoxazole 1	>8	R

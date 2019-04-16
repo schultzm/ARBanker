@@ -1,14 +1,14 @@
-Drug	MIC (μg/ml)	INT	AR Bank
-Amoxicillin/clavulanic acid 1	4	S	426
-Ampicillin	4	S	426
-Azithromycin	4	---	426
-Cefoxitin	2	S	426
-Ceftriaxone	< =0.25	S	426
-Chloramphenicol	4	S	426
-Ciprofloxacin	< =0.015	S	426
-Gentamicin	1	S	426
-Nalidixic acid	2	S	426
-Streptomycin	8	---	426
-Sulfisoxazole	32	S	426
-Tetracycline	< =4	S	426
-Trimethoprim/sulfamethoxazole 1	< =0.12	S	426
+AR Bank	Drug	MIC (μg/ml)	INT
+426	Amoxicillin/clavulanic acid 1	4	S
+426	Ampicillin	4	S
+426	Azithromycin	4	---
+426	Cefoxitin	2	S
+426	Ceftriaxone	< =0.25	S
+426	Chloramphenicol	4	S
+426	Ciprofloxacin	< =0.015	S
+426	Gentamicin	1	S
+426	Nalidixic acid	2	S
+426	Streptomycin	8	---
+426	Sulfisoxazole	32	S
+426	Tetracycline	< =4	S
+426	Trimethoprim/sulfamethoxazole 1	< =0.12	S

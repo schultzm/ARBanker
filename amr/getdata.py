@@ -13,6 +13,21 @@ from multiprocessing import Pool, cpu_count
 import re
 from pathlib import Path
 
+def render_table(tabl, label, index_name):
+    """
+    Render the 'tabl' into a pandas df.
+    Label the index with 'index_name'
+    Write the df to file named 'label'.
+    """
+    table = list(filter(None, [rw for rw in tabl[1:]]))
+    table = pd.DataFrame(table[1:], columns=table[0])
+    table[index_name] = bank_n
+    cols = [index_name] + [i for i in table.columns if i != index_name]
+    table = table[cols]
+    table = table.ffill()
+    table.to_csv(label, sep='\t', index=False)
+
+
 
 def hit_ar(params):
     target, bank_n = params
@@ -20,9 +35,10 @@ def hit_ar(params):
     mdata = Path.cwd() / f'../results/Metadata/{bank_n}.tab'
     mic = Path.cwd() / f'../results/MIC/{bank_n}.tab'
     mmr = Path.cwd() / f'../results/MMR/{bank_n}.tab'
+    index_name = 'AR Bank'
     # get website content
-    req = urllib.request.Request(url=target)
-    f = urllib.request.urlopen(req)
+    req = Request(url=target)
+    f = urlopen(req)
     xhtml = f.read().decode('utf-8')
 
     # instantiate the parser and feed it
@@ -43,124 +59,22 @@ def hit_ar(params):
             # put commas in place, split on comma
             table = [rw.replace(':', '\t').split('\t') for rw in table]
             # Convert 2d to dict
-            table = {i[0].strip(): i[1].strip() for i in table}
+            table = {i[0].strip(): i[1].strip() for i in table if len(i) > 1}
             # Create pd.DataFrame()
             table = pd.DataFrame([table], index=None)
             # mdata = table
             table.to_csv(mdata, sep='\t', index=False)
             # return table
         if index == 1:
-            table = list(filter(None, [rw for rw in tabl[1:]]))
-            table = pd.DataFrame(table[1:], columns=table[0])
-            table['AR Bank'] = bank_n
-            cols = ['AR Bank'] + [i for i in table.columns if i != 'AR Bank']
-            table = table[cols]
-            table = table.ffill()
-            table.to_csv(mic, sep='\t', index=False)
-            ## DRY convert the above repeated lines to a function, and for index==2
-
+            render_table(tabl, mic, index_name)
         if index == 2:
-            table = list(filter(None, [rw for rw in tabl[1:]]))
-            table = pd.DataFrame(table[1:], columns=table[0])
-            table['AR Bank'] = bank_n
-            cols = ['AR Bank'] + [i for i in table.columns if i != 'AR Bank']
-            table = table[cols]
-            table = table.ffill()
-            table.to_csv(mmr, sep='\t', index=False)
+            render_table(tabl, mmc, index_name)
 
-from parser import HTMLTableParser
-import urllib.request
-numbers = pd.read_csv("ARnumbers.tab", sep="\t", header=0, index_col=1)
-print(numbers)
-basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
-targets = [(f"{basetarget}{i}", i) for i in numbers.BANK]
-Pool(cpu_count()).map(hit_ar, targets)
-
-
-
-# results = pd.DataFrame()
-# cmd1 = "esearch -db BioProject -query"
-# cmd3 = "efetch -format xml"
-
-# proc1 = Popen(shlex.split(f"{cmd1} {master_bioproject}"), stdout=PIPE)
-# proc3 = Popen(shlex.split(cmd3), stdin=proc1.stdout, stdout=PIPE, stderr=PIPE)
-# result_masterproj = proc3.communicate()[0].decode("UTF-8")
-# masterproject = ET.fromstring(result_masterproj)
-# for child in masterproject:
-#     result = pd.DataFrame()
-#     for link in child.iter('ProjectIDRef'):
-#         # Get the metadata for the slave project
-#         proc_a = Popen(shlex.split(f"{cmd1} {link.attrib['accession']}"),
-#                        stdout=PIPE)
-#         proc_b = Popen(shlex.split(cmd3), stdin=proc_a.stdout, stdout=PIPE,
-#                        stderr=PIPE)
-#         result_slaveproj = proc_b.communicate()[0].decode("UTF-8")
-#         slaveproject = ET.fromstring(result_slaveproj)
-#         for grandchild in slaveproject:
-#             title_ = None
-#             for title in grandchild.iter('Title'):
-#                 title_ = title.text
-#             for samn in grandchild.iter('LocusTagPrefix'):
-#                 # Add the accessions to the result table
-#                 grandchild_result = {}
-#                 grandchild_result['Title'] = title_
-#                 grandchild_result['SlaveBioProject'] = link.attrib['accession']
-#                 grandchild_result['MasterBioProject'] = master_bioproject
-#                 grandchild_result.update(samn.attrib)
-#                 grandchild_result = pd.DataFrame([grandchild_result])
-#                 results = pd.concat([grandchild_result, results],
-#                                     ignore_index=True,
-#                                     sort=False)
-#                 proc_c = Popen(shlex.split(cmd1.replace('BioProject',
-#                                                         'BioSample') + " " +\
-#                                            samn.attrib['biosample_id']),
-#                                stdout=PIPE)
-#                 proc_d = Popen(shlex.split(cmd3), stdin=proc_c.stdout,
-#                                stdout=PIPE,
-#                                stderr=PIPE)
-#                 samn_tabl = proc_d.communicate()[0].decode("UTF-8")
-#                 # print(samn_tabl)
-#                 samn_tabl_xml = ET.fromstring(samn_tabl)
-#                 panel_id = None # the CDC Panel isolate number
-#                 strain = None # the CDC AR number
-
-
-
-#                 for attributes_ in samn_tabl_xml.iter("Attribute"):
-#                     if "panel_id" in attributes_.attrib.values():
-#                         panel_id = attributes_.text
-#                     elif "strain" in attributes_.attrib.values():
-#                         strain = attributes_.text
-#                 antibiograms = []
-#                 headers = None
-#                 counter = 0
-                
-
-#                     # tabl_part = [row for row in tabl if 0<len(row)]
-#                     # print(tabl_part)
-#                     # for row in tabl:
-#                         # print(len(row), row)
-#                     # print(tabl[1:])
-#                 # print(p.tables[0])
-#                 # print(help(HTMLTableParser))
-#                 # tables = pd.read_html("", match="table")
-#                 # print(tables[0])  
-
-#                 # table = ET.fromstring(s)
-#                 # rows = iter(table)
-#                 # headers = [col.text for col in next(rows)]
-#                 # for row in rows:
-#                 #     values = [col.text for col in row]
-#                 #     print(dict(zip(headers, values)))
-
-#                 while counter < 1:
-#                     for header in samn_tabl_xml.iter('Header'):
-#                         headers = [colname.text for colname in header.iter('Cell')]
-#                         counter += 1
-#                 for rown, rowvals in enumerate(samn_tabl_xml.iter('Row')):
-#                     minidf = pd.DataFrame([dict(zip(headers, [value.text for value in rowvals.iter('Cell')]))])
-#                     antibiograms.append(minidf)
-#                 antibiogram = pd.concat(antibiograms)
-#                 with open(f"{samn.attrib['biosample_id']}_antibiogram.txt", "w") as abgout:
-#                     antibiogram.to_csv(abgout, sep = '\t', mode = 'w', index=False)
-# results.to_csv(SLAVEPRJs)
+if __name__ == "__main__":
+    from parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
+    from urllib.request import Request, urlopen
+    numbers = pd.read_csv("ARnumbers.tab", sep="\t", header=0, index_col=1)
+    print(numbers)
+    basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
+    targets = [(f"{basetarget}{i}", i) for i in numbers.BANK]
+    Pool(cpu_count()).map(hit_ar, targets)

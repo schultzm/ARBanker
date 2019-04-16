@@ -1,27 +1,27 @@
-Drug	MIC (μg/ml)	INT	AR Bank
-Amikacin	8	S	448
-Ampicillin	>32	R	448
-Ampicillin/sulbactam 1	>32	R	448
-Aztreonam	>64	R	448
-Cefazolin	>8	R	448
-Cefepime	>32	R	448
-Cefotaxime	>64	R	448
-Cefoxitin	>16	R	448
-Ceftazidime	>128	R	448
-Ceftazidime/avibactam 1	>16	R	448
-Ceftolozane/tazobactam 1	>16	R	448
-Ceftriaxone	>32	R	448
-Ciprofloxacin	>8	R	448
-Colistin	0.5	---	448
-Doripenem	>8	R	448
-Ertapenem	>8	R	448
-Gentamicin	0.5	S	448
-Imipenem	16	R	448
-Imipenem+chelators 2	0.5	---	448
-Levofloxacin	>8	R	448
-Meropenem	>8	R	448
-Piperacillin/tazobactam 1	>128	R	448
-Tetracycline	8	I	448
-Tigecycline	1	S	448
-Tobramycin	16	R	448
-Trimethoprim/sulfamethoxazole 1	>8	R	448
+AR Bank	Drug	MIC (μg/ml)	INT
+448	Amikacin	8	S
+448	Ampicillin	>32	R
+448	Ampicillin/sulbactam 1	>32	R
+448	Aztreonam	>64	R
+448	Cefazolin	>8	R
+448	Cefepime	>32	R
+448	Cefotaxime	>64	R
+448	Cefoxitin	>16	R
+448	Ceftazidime	>128	R
+448	Ceftazidime/avibactam 1	>16	R
+448	Ceftolozane/tazobactam 1	>16	R
+448	Ceftriaxone	>32	R
+448	Ciprofloxacin	>8	R
+448	Colistin	0.5	---
+448	Doripenem	>8	R
+448	Ertapenem	>8	R
+448	Gentamicin	0.5	S
+448	Imipenem	16	R
+448	Imipenem+chelators 2	0.5	---
+448	Levofloxacin	>8	R
+448	Meropenem	>8	R
+448	Piperacillin/tazobactam 1	>128	R
+448	Tetracycline	8	I
+448	Tigecycline	1	S
+448	Tobramycin	16	R
+448	Trimethoprim/sulfamethoxazole 1	>8	R

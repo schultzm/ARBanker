@@ -1,17 +1,17 @@
-Drug	MIC (μg/ml)	INT	AR Bank
-Amikacin	>64	R	444
-Aztreonam	16	I	444
-Cefepime	>32	R	444
-Ceftazidime	64	R	444
-Ceftazidime/avibactam 1	>16	R	444
-Ceftolozane/tazobactam 1	>16	R	444
-Ciprofloxacin	>8	R	444
-Colistin	1	S	444
-Doripenem	>8	R	444
-Gentamicin	>16	R	444
-Imipenem	>64	R	444
-Imipenem+chelators 2	>32	---	444
-Levofloxacin	>8	R	444
-Meropenem	>8	R	444
-Piperacillin/tazobactam 1	>128	R	444
-Tobramycin	>16	R	444
+AR Bank	Drug	MIC (μg/ml)	INT
+444	Amikacin	>64	R
+444	Aztreonam	16	I
+444	Cefepime	>32	R
+444	Ceftazidime	64	R
+444	Ceftazidime/avibactam 1	>16	R
+444	Ceftolozane/tazobactam 1	>16	R
+444	Ciprofloxacin	>8	R
+444	Colistin	1	S
+444	Doripenem	>8	R
+444	Gentamicin	>16	R
+444	Imipenem	>64	R
+444	Imipenem+chelators 2	>32	---
+444	Levofloxacin	>8	R
+444	Meropenem	>8	R
+444	Piperacillin/tazobactam 1	>128	R
+444	Tobramycin	>16	R

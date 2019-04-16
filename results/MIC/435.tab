@@ -1,28 +1,28 @@
-Drug	MIC (μg/ml)	INT	AR Bank
-Amikacin	>64	R	435
-Ampicillin	>32	R	435
-Ampicillin/sulbactam 1	>32	R	435
-Aztreonam	>64	R	435
-Cefazolin	>8	R	435
-Cefepime	>32	R	435
-Cefotaxime	>64	R	435
-Cefotaxime/clavulanic acid 1	>32	---	435
-Cefoxitin	>16	R	435
-Ceftazidime	>128	R	435
-Ceftazidime/avibactam 1	>16	R	435
-Ceftazidime/clavulanic acid 1	>64	---	435
-Ceftriaxone	>32	R	435
-Ciprofloxacin	>8	R	435
-Colistin	0.5	---	435
-Doripenem	>8	R	435
-Ertapenem	>8	R	435
-Gentamicin	>16	R	435
-Imipenem	4	R	435
-Imipenem+chelators 2	< =0.25	---	435
-Levofloxacin	>8	R	435
-Meropenem	>8	R	435
-Piperacillin/tazobactam 1	>128	R	435
-Tetracycline	>32	R	435
-Tigecycline 3	< =0.5	S	435
-Tobramycin	>16	R	435
-Trimethoprim/sulfamethoxazole 1	>8	R	435
+AR Bank	Drug	MIC (μg/ml)	INT
+435	Amikacin	>64	R
+435	Ampicillin	>32	R
+435	Ampicillin/sulbactam 1	>32	R
+435	Aztreonam	>64	R
+435	Cefazolin	>8	R
+435	Cefepime	>32	R
+435	Cefotaxime	>64	R
+435	Cefotaxime/clavulanic acid 1	>32	---
+435	Cefoxitin	>16	R
+435	Ceftazidime	>128	R
+435	Ceftazidime/avibactam 1	>16	R
+435	Ceftazidime/clavulanic acid 1	>64	---
+435	Ceftriaxone	>32	R
+435	Ciprofloxacin	>8	R
+435	Colistin	0.5	---
+435	Doripenem	>8	R
+435	Ertapenem	>8	R
+435	Gentamicin	>16	R
+435	Imipenem	4	R
+435	Imipenem+chelators 2	< =0.25	---
+435	Levofloxacin	>8	R
+435	Meropenem	>8	R
+435	Piperacillin/tazobactam 1	>128	R
+435	Tetracycline	>32	R
+435	Tigecycline 3	< =0.5	S
+435	Tobramycin	>16	R
+435	Trimethoprim/sulfamethoxazole 1	>8	R
