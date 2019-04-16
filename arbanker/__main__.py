@@ -45,19 +45,20 @@ def render_table(tabl, label, index, index_name, bank_n):
         # 1 = MIC table, 2 = MMR table
         table = list(filter(None, [rw for rw in tabl[1:]]))
         nheaders = len(table[0])
-        # if 
-        table = pd.DataFrame(table[1:], columns=table[0])
+        data = [tabl for tabl in table[1:] if len(tabl) == nheaders] 
+        table = pd.DataFrame(data, columns=table[0])
         table[index_name] = bank_n
         cols = [index_name] + [i for i in table.columns if i != index_name]
         table = table[cols]
         table = table.ffill()
-    try:
+        if not table.empty:
+            table_ = table
+    if isinstance(table_, pd.DataFrame):
         with open(outfile, "w") as outfile_:
-            table.to_csv(outfile_, sep='\t', index=False)
+            table_.to_csv(outfile_, sep='\t', index=False)
             sys.stderr.write(f"Written {outfile}.\n")
-    except IOError:
-        sys.stderr.write(f"Could not write {outfile}.\n") # this try/except doesn't work correctly
-
+    else:
+        sys.stderr.write(f"No data to write for AR Bank number {bank_n}.\n")
 
 def hit_ar(params):
     from .utils.parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
@@ -140,7 +141,6 @@ def main():
         parser.print_help()
     elif args.subparser_name == 'grab':
         numbers = args.bank_no
-        print(numbers)
         basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
         targets = (f"{basetarget}{args.bank_no}",
                    args.bank_no,
