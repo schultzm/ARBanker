@@ -82,13 +82,7 @@ Run `arbanker` for multiple queries in parallel, outputting to custom
 destination:  
 
 ```
-echo "1
-2
-3
-4
-5
-6
-7" | while read line;
+seq 1 100 | while read line;
 do
     echo "arbanker grab ${line} -o ~/tmp/arbankerparallel"
 done | parallel {}
