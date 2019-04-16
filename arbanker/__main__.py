@@ -19,7 +19,7 @@ def render_table(tabl, label, index, index_name, bank_n):
     Write the df to file named 'label'.
     """
     outfile = label / f"{bank_n}.tab"
-    table = None
+    table_ = None
     if index == 0:
         # Metadata table
         # Add 'species' as a header, filter empty lists and values
@@ -37,22 +37,26 @@ def render_table(tabl, label, index, index_name, bank_n):
         table = [item for sublist in table for item in sublist]
         table = [rw.replace(':', '\t').split('\t') for rw in table]
         # Convert 2d to dict
-        table = {i[0].strip(): i[1].strip() for i in table if len(i) > 1}
+        table = {i[0].strip(): i[1].strip() for i in table if len(i) > 1 and len(i[1].strip()) > 0}
         table = pd.DataFrame([table], index=None)
+        if not table.empty:
+            table_ = table
     if index == 1 or index == 2:
         # 1 = MIC table, 2 = MMR table
         table = list(filter(None, [rw for rw in tabl[1:]]))
+        nheaders = len(table[0])
+        # if 
         table = pd.DataFrame(table[1:], columns=table[0])
         table[index_name] = bank_n
         cols = [index_name] + [i for i in table.columns if i != index_name]
         table = table[cols]
         table = table.ffill()
     try:
-        table.to_csv(outfile, sep='\t', index=False)
-        sys.stderr.write(f"Written {outfile}.\n")
+        with open(outfile, "w") as outfile_:
+            table.to_csv(outfile_, sep='\t', index=False)
+            sys.stderr.write(f"Written {outfile}.\n")
     except IOError:
-        sys.stderr.write(f"Could not write {outfile}.\n")
-    
+        sys.stderr.write(f"Could not write {outfile}.\n") # this try/except doesn't work correctly
 
 
 def hit_ar(params):
