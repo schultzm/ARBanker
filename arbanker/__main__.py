@@ -71,7 +71,10 @@ def hit_ar(params):
             render_table(tabl, mmr, index_name, bank_n)
 
 
-if __name__ == "__main__":
+def main():
+    """
+    The main routine.
+    """
     from parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
     from urllib.request import Request, urlopen
     numbers = pd.read_csv("ARnumbers.tab", sep="\t", header=0, index_col=1)
@@ -79,3 +82,7 @@ if __name__ == "__main__":
     basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
     targets = [(f"{basetarget}{i}", i) for i in numbers.BANK]
     Pool(cpu_count()).map(hit_ar, targets)
+
+
+if __name__ == "__main__":
+    main()
