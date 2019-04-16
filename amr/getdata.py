@@ -13,7 +13,7 @@ from multiprocessing import Pool, cpu_count
 import re
 from pathlib import Path
 
-def render_table(tabl, label, index_name):
+def render_table(tabl, label, index_name, bank_n):
     """
     Render the 'tabl' into a pandas df.
     Label the index with 'index_name'
@@ -66,9 +66,9 @@ def hit_ar(params):
             table.to_csv(mdata, sep='\t', index=False)
             # return table
         if index == 1:
-            render_table(tabl, mic, index_name)
+            render_table(tabl, mic, index_name, bank_n)
         if index == 2:
-            render_table(tabl, mmc, index_name)
+            render_table(tabl, mmr, index_name, bank_n)
 
 if __name__ == "__main__":
     from parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
