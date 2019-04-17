@@ -23,7 +23,7 @@ def render_table(tabl, label, index, index_name, bank_n):
     if index == 0:
         # Metadata table
         # Add 'species' as a header, filter empty lists and values
-        table = [re.sub('(?<=\d) +(?=[A-Z])', '\tSpecies: ', rw[0])
+        table = [re.sub("(?<=\d) +(?=[A-Z])", "\tSpecies: ", rw[0])
                     for rw in list(filter(None, [list(filter(None, row))
                     for row in tabl]))]
         # split up further
@@ -48,7 +48,7 @@ def render_table(tabl, label, index, index_name, bank_n):
         data = [tabl for tabl in table[1:] if len(tabl) == nheaders] 
         table = pd.DataFrame(data, columns=table[0])
         table[index_name] = bank_n
-        cols = [index_name] + [i for i in table.columns if i != index_name]
+        cols = [index_name] + [i for i in table.columns.tolist() if i != index_name]
         table = table[cols]
         table = table.ffill()
         if not table.empty:
@@ -56,9 +56,9 @@ def render_table(tabl, label, index, index_name, bank_n):
     if isinstance(table_, pd.DataFrame):
         with open(outfile, "w") as outfile_:
             table_.to_csv(outfile_, sep='\t', index=False)
-            sys.stderr.write(f"Written {outfile}.\n")
+            sys.stderr.write(f"Written {outfile}\n")
     else:
-        sys.stderr.write(f"No data to write for AR Bank number {bank_n}.\n")
+        sys.stderr.write(f"No data to write for AR Bank number {bank_n}\n")
 
 def hit_ar(params):
     """

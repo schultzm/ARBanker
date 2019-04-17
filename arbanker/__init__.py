@@ -31,4 +31,4 @@ __github_username__ = 'schultzm'
 __install__         = 'pip3 install git+https://github.com/schultzm/ARBanker.git'
 __download_url__    = 'https://github.com/schultzm/ARBanker/zipball/master'
 __license__         = 'AGPL-3.0'
-__all__             = ['arbanker'] # This line generates a pylint error. Fix.
+#__all__             = [''] # This line generates a pylint error. Fix.
