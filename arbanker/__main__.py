@@ -12,85 +12,11 @@ from pathlib import Path
 import sys
 
 
-def render_table(tabl, label, index, index_name, bank_n):
-    """
-    Render the 'tabl' into a pandas df.
-    Label the index with 'index_name'
-    Write the df to file named 'label'.
-    """
-    outfile = label / f"{bank_n}.tab"
-    table_ = None
-    if index == 0:
-        # Metadata table
-        # Add 'species' as a header, filter empty lists and values
-        table = [re.sub("(?<=\d) +(?=[A-Z])", "\tSpecies: ", rw[0])
-                    for rw in list(filter(None, [list(filter(None, row))
-                    for row in tabl]))]
-        # split up further
-        table = [rw.replace('Positive  Carba', 'Positive\tCarba').
-                    replace('Negative  Carba', 'Negative\tCarba')
-                    for rw in table]
-        # remove hash characters, sub : for , and split on ,
-        table = [item.replace(' #', '').replace('\r\n', ':').split('\t')
-                    for item in table]
-        # Flatten the 2d list
-        table = [item for sublist in table for item in sublist]
-        table = [rw.replace(':', '\t').split('\t') for rw in table]
-        # Convert 2d to dict
-        table = {i[0].strip(): i[1].strip() for i in table if len(i) > 1 and len(i[1].strip()) > 0}
-        table = pd.DataFrame([table], index=None)
-        if not table.empty:
-            table_ = table
-    if index == 1 or index == 2:
-        # 1 = MIC table, 2 = MMR table
-        table = list(filter(None, [rw for rw in tabl[1:]]))
-        nheaders = len(table[0])
-        data = [tabl for tabl in table[1:] if len(tabl) == nheaders] 
-        table = pd.DataFrame(data, columns=table[0])
-        table[index_name] = bank_n
-        cols = [index_name] + [i for i in table.columns.tolist() if i != index_name]
-        table = table[cols]
-        table = table.ffill()
-        if not table.empty:
-            table_ = table
-    if isinstance(table_, pd.DataFrame):
-        with open(outfile, "w") as outfile_:
-            table_.to_csv(outfile_, sep='\t', index=False)
-            sys.stderr.write(f"Written {outfile}\n")
-    else:
-        sys.stderr.write(f"No data to write for AR Bank number {bank_n}\n")
-
-def hit_ar(params):
-    """
-    Query the url.
-    """
-    from .utils.parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
-    from urllib.request import Request, urlopen
-
-    target, bank_n, output_dir = params
-    bank_n = str("{:03d}".format(bank_n))
-    mdata = output_dir / 'Metadata'
-    mic = output_dir / 'MIC'
-    mmr = output_dir / 'MMR'
-    Path.mkdir(mdata, parents=True, exist_ok=True)
-    Path.mkdir(mic, parents=True, exist_ok=True)
-    Path.mkdir(mmr, parents=True, exist_ok=True)
-
-    index_name = 'AR Bank'
-    # get website content
-    req = Request(url=target)
-    f = urlopen(req)
-    xhtml = f.read().decode('utf-8')
-    # instantiate the parser and feed it
-    p = HTMLTableParser()
-    p.feed(xhtml)
-    for index, tabl in enumerate(p.tables[0:3]):
-        if index == 0:
-            render_table(tabl, mdata, index, index_name, bank_n)
-        if index == 1:
-            render_table(tabl, mic, index, index_name, bank_n)
-        if index == 2:
-            render_table(tabl, mmr, index, index_name, bank_n)
+def getdata(bank_no, outdir):
+    from .utils.isolate import Isolate
+    iso = Isolate(bank_no, outdir)
+    for table_name in ['Metadata', 'MIC', 'MMR']:
+        iso.write_table(table_name)
 
 
 def main():
@@ -141,11 +67,7 @@ def main():
     if not args.subparser_name:
         parser.print_help()
     elif args.subparser_name == 'grab':
-        basetarget = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
-        targets = (f"{basetarget}{args.bank_no}",
-                   args.bank_no,
-                   Path(args.output_directory))
-        hit_ar(targets)
+        getdata(args.bank_no, args.output_directory)
     elif args.subparser_name == 'version':
         from .utils.version import Version
         Version()
