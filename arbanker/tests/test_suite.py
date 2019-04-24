@@ -1,15 +1,18 @@
 import unittest
-
+from ..tests.test_isolate import IsolateTestCasePass, IsolateTestCaseFail
 
 def suite():
     """
     This is the test suite.
     """
     suite = unittest.TestSuite()
-    suite.addTest(WidgetTestCase('test_default_widget_size'))
-    suite.addTest(WidgetTestCase('test_widget_resize'))
-    return suite
+    suite.addTest(IsolateTestCasePass('test_hit_url'))
+    suite.addTest(IsolateTestCasePass('test_hit_xml'))
+    suite.addTest(IsolateTestCasePass('test_render_metadatatable'))
+    suite.addTest(IsolateTestCasePass('test_render_datatables'))
 
-if __name__ == '__main__':
-    runner = unittest.TextTestRunner()
-    runner.run(suite())
+    suite.addTest(IsolateTestCaseFail('test_hit_url'))
+    suite.addTest(IsolateTestCaseFail('test_hit_xml'))
+    suite.addTest(IsolateTestCaseFail('test_render_metadatatable'))
+    suite.addTest(IsolateTestCaseFail('test_render_datatables'))
+    return suite

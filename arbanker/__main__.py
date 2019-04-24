@@ -71,7 +71,6 @@ def main():
     subparser_modules.add_parser(
         "test", help="Run test suite.",
         description="Run test suite.",
-        parents=[subparser_args1],
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 
     args = parser.parse_args()
@@ -83,6 +82,13 @@ def main():
     elif args.subparser_name == 'version':
         from .utils.version import Version
         Version()
+    elif args.subparser_name == 'test':
+        import unittest
+        from .tests.test_suite import suite
+        runner = unittest.TextTestRunner(verbosity=2)
+        runner.run(suite())
+
+
 
 
 if __name__ == "__main__":

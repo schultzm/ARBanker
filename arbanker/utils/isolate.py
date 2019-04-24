@@ -106,7 +106,6 @@ class Isolate:
             table = self.render_datatable(self.hit_xml()[table_name])
         if not table.empty:
             Path.mkdir(self.outdir / table_name, parents=True, exist_ok=True)
-            print(table.to_csv())
             with open(self.outdir / table_name / self.outfile, "w") as outfile_:
                 table.to_csv(outfile_, sep='\t', index=False)
                 sys.stderr.write(f"Written {outfile_.name}\n")
