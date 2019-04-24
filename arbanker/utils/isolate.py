@@ -7,9 +7,16 @@ import sys
 class Isolate:
     basetarget = "https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID="
     def __init__(self, bank_no, outdir):
+        """Intialise the Isolate.
+        
+        Arguments:
+            bank_no {int} -- The AR Isolate Bank item number.
+            outdir {PosixPath} -- Destination folder for results.
+        """
+
         self.bank_no   = str("{:03d}".format(bank_no))
         self.target    = f"{self.basetarget}{self.bank_no}"
-        self.outdir    = Path(outdir)
+        self.outdir    = outdir
         self.outfile   =  f"{self.bank_no}.tab"
         self.mdata_name = "Metadata"
         self.mic_name   = "MIC" 
@@ -17,8 +24,10 @@ class Isolate:
         self.index_name = "AR Bank"
     
     def hit_xml(self):
-        """
-        Query the url.
+        """Query the CDC webpage and return the table.
+        
+        Returns:
+            dict -- {'Name of table': 'table'}.
         """
         from .parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
         from urllib.request import Request, urlopen
@@ -34,6 +43,14 @@ class Isolate:
                 "MMR": p.tables[2]}
 
     def render_metadatatable(self, tabl):
+        """Formatter method for a metadata table.
+        
+        Arguments:
+            tabl {list} -- A list of lists (i.e., a 2d list).
+        
+        Returns:
+            pandas.core.frame.DataFrame -- A pandas dataframe.
+        """
         # Add 'species' as a header, filter empty lists and values
         table = [re.sub("(?<=\d) +(?=[A-Z])", "\tSpecies: ", rw[0])
                     for rw in list(filter(None, [list(filter(None, row))
@@ -54,28 +71,42 @@ class Isolate:
         return table
 
     def render_datatable(self, tabl):
-        # pass
-        # print(tabl, 'XYZ')
+        """Formatter method for data table.
+        
+        Arguments:
+            tabl {list} -- A list of lists (i.e., a 2d list).
+        
+        Returns:
+            pandas.core.frame.DataFrame -- A pandas dataframe.
+        """
         table = list(filter(None, [rw for rw in tabl[1:]]))
         nheaders = len(table[0])
         data = [tabl for tabl in table[1:] if len(tabl) == nheaders] 
         table = pd.DataFrame(data, columns=table[0])
+        if 'Drug' in table.columns:
+            # Replace the footnote markers with ''
+            table.Drug = table.Drug.apply(lambda x: re.sub(' [0-9]$', '', x))
         table[self.index_name] = self.bank_no
-        cols = [self.index_name] + [i for i in table.columns.tolist() if i != self.index_name]
+        cols = [self.index_name] + \
+               [i for i in table.columns.tolist() if i != self.index_name]
         table = table[cols]
         table = table.ffill()
         return table
-        # self.table = table
-        # return self.table
 
 
     def write_table(self, table_name):
+        """Write out the data table.
+        
+        Arguments:
+            table_name {str} -- Name of the table in hit_xml dict. 
+        """
         if table_name == 'Metadata':
             table = self.render_metadatatable(self.hit_xml()[table_name])
         else:
             table = self.render_datatable(self.hit_xml()[table_name])
         if not table.empty:
             Path.mkdir(self.outdir / table_name, parents=True, exist_ok=True)
+            print(table.to_csv())
             with open(self.outdir / table_name / self.outfile, "w") as outfile_:
                 table.to_csv(outfile_, sep='\t', index=False)
                 sys.stderr.write(f"Written {outfile_.name}\n")

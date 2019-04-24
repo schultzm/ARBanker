@@ -13,6 +13,17 @@ import sys
 
 
 def getdata(bank_no, outdir):
+    """Create an instance of an Isolate() for each bank_no.
+       Write out tables from the CDC AR bank for each isolate.
+       There will be one table each for:
+           - Metadata
+           - MIC
+           - MMR
+    
+    Arguments:
+        bank_no {int} -- The AR Isolate Bank number
+        outdir {PosixPath} -- The output directory as a PosixPath object
+    """
     from .utils.isolate import Isolate
     iso = Isolate(bank_no, outdir)
     for table_name in ['Metadata', 'MIC', 'MMR']:
@@ -39,6 +50,7 @@ def main():
         "--output_directory",
         help="Specify path to output results",
         default=Path.home() / 'ARBanker' / 'results',
+        type = Path,
         required=False
     )
 

@@ -1,10 +1,12 @@
 import unittest
+from pathlib import Path
+from .utils.isolate import Isolate
 
-class UrlQueryTestCase(unittest.TestCase):
+class IsolateTestCase(unittest.TestCase):
     def setUp(self):
-        self.baseurl = 'https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID='
+        self.isolate = Isolate(001, Path.home() / 'ARBanker' / 'test')
 
-    def test_fail_table(self):
+    def test_hit_xml(self):
         self.assertEqual(self.widget.size(), (50,50),
                          'incorrect default size')
 
