@@ -34,6 +34,33 @@ Installing collected packages: arbanker
 Successfully installed arbanker-0.1.0b0
 ```
 
+### Testing installation
+
+After staring pipenv, run the test suite:  
+```
+pipenv shell
+arbanker test
+```
+
+You should see:  
+```
+arbanker test
+test_hit_url (arbanker.tests.test_isolate.IsolateTestCasePass) ... ok
+test_hit_xml (arbanker.tests.test_isolate.IsolateTestCasePass) ... ok
+test_render_metadatatable (arbanker.tests.test_isolate.IsolateTestCasePass) ... ok
+test_render_datatables (arbanker.tests.test_isolate.IsolateTestCasePass) ... ok
+test_hit_url (arbanker.tests.test_isolate.IsolateTestCaseFail) ... ok
+test_hit_xml (arbanker.tests.test_isolate.IsolateTestCaseFail) ... ok
+test_render_metadatatable (arbanker.tests.test_isolate.IsolateTestCaseFail) ... ok
+test_render_datatables (arbanker.tests.test_isolate.IsolateTestCaseFail) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 13.132s
+
+OK
+
+```
+
 If you want to run this program in parallel, use `gnu parallel`, installed via:  
 
 ```
