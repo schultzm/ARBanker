@@ -66,9 +66,6 @@ def main():
     subparser_modules.add_parser(
         "version", help="Print version.", description="Print version.")
     subparser_modules.add_parser(
-        "depcheck", help="Check dependencies are in path.  Requires Rpy2.",
-        description="Check dependencies.")
-    subparser_modules.add_parser(
         "test", help="Run test suite.",
         description="Run test suite.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)

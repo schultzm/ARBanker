@@ -57,7 +57,8 @@ class Isolate:
                     for row in tabl]))]
         # split up further
         table = [rw.replace('Positive  Carba', 'Positive\tCarba').
-                    replace('Negative  Carba', 'Negative\tCarba')
+                    replace('Negative  Carba', 'Negative\tCarba').
+                    replace('Sequence Accession', 'Biosample Accession')
                     for rw in table]
         # remove hash characters, sub : for , and split on ,
         table = [item.replace(' #', '').replace('\r\n', ':').split('\t')

@@ -109,8 +109,5 @@ Run `arbanker` for multiple queries in parallel, outputting to custom
 destination:  
 
 ```
-seq 1 100 | while read line;
-do
-    echo "arbanker grab ${line} -o ~/tmp/arbankerparallel"
-done | parallel {}
+parallel --bar arbanker grab {} -o ~/tmp/arbankerparallel ::: $(seq 1 100)
 ```
