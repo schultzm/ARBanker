@@ -1,7 +1,8 @@
 # ARBanker
 
-[![Build Status](https://travis-ci.com/schultzm/ARBanker.svg?branch=master)](https://travis-ci.com/schultzm/ARBanker)
-[![codecov](https://codecov.io/gh/TechnionYP5777/project-name/branch/master/graph/badge.svg)](https://codecov.io/gh/TechnionYP5777/ARBanker)
+[![Build Status](https://travis-ci.com/schultzm/ARBanker.svg?branch=master)](https://travis-ci.com/schultzm/ARBanker)  
+[![codecov](https://codecov.io/gh/schultzm/ARBanker/branch/master/graph/badge.svg)](https://codecov.io/gh/schultzm/ARBanker)  
+  
 
 Download metadata for isolates stored in the 
 [CDC & FDA Antibiotic Resistance Isolate Bank](
