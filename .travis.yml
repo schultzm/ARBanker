@@ -7,8 +7,6 @@ python:
 sudo: false
 
 install:
-- pip3 install pipenv --user
-- pipenv shell
 - pip3 install git+https://github.com/schultzm/ARBanker.git\
 
 before_script:
