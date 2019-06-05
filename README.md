@@ -19,7 +19,7 @@ This program will scrape the CDC webpages and parse out the tables to file for e
 
 ## Installation
 
-Install pip3, then do:  
+Install `pip3`, then do:  
 
 ```
 pip3 install git+https://github.com/schultzm/ARBanker.git
