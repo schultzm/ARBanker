@@ -5,14 +5,14 @@ Download metadata for isolates stored in the
     https://wwwn.cdc.gov/ARIsolateBank/
 )  
 
-This program will scrape the CDC webpages and parse out the tables for an 
-isolate to file.
+This program will scrape the CDC webpages and parse out the tables to file for each AR Bank ID ("isolate").
 
 ## Author
 
 [Mark Schultz](https://github.com/schultzm)
 
 ## Installation
+
 Install pip3, then install `pipenv` with `pip3 install pipenv`.  
 
 After installing `pipenv`, do:  
