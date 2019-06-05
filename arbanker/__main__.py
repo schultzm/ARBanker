@@ -49,7 +49,7 @@ def main():
         "-o",
         "--output_directory",
         help="Specify path to output results",
-        default=Path.home() / 'ARBanker' / 'results',
+        default=Path.home() / 'arbanker_results',
         type = Path,
         required=False
     )
