@@ -7,11 +7,11 @@ FAIL_NO = 1000000000
 
 class IsolateTestCasePass(unittest.TestCase):
     def setUp(self):
-        self.isolate = Isolate(PASS_NO, Path.home() / 'ARBanker' / 'test')
+        self.isolate = Isolate(PASS_NO, Path.home() / 'arbanker_test')
 
     def test_hit_url(self):
         self.assertEqual(self.isolate.target,
-                         self.isolate.basetarget+str("{:03d}".format(PASS_NO)))
+                         self.isolate.basetarget+str("{:04d}".format(PASS_NO)))
     
     def test_hit_xml(self):
         self.assertIn('Metadata', self.isolate.hit_xml())
