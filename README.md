@@ -159,4 +159,4 @@ destination:
 ```
 parallel --bar arbanker grab {} -o ~/tmp/arbankerparallel ::: $(seq 1 100)
 ```
-arbanker_results
+
