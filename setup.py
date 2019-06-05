@@ -52,5 +52,5 @@ setup(
     author_email=arbanker.__author_email__,
     license=arbanker.__license__,
     package_data={'': []},
-    install_requires=[],
+    install_requires=['pandas>=0.23.4'],
 )
