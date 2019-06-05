@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/gh/schultzm/ARBanker/branch/master/graph/badge.svg)](https://codecov.io/gh/schultzm/ARBanker)  
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)  
 [![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)  
-[![Powered by](https://img.shields.io/badge/powered%20by-jekyl-blue.svg)
+![Powered by](https://img.shields.io/badge/powered%20by-jekyl-blue.svg)
 
 
 Download metadata for isolates stored in the 
