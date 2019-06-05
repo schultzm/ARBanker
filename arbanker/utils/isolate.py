@@ -14,7 +14,8 @@ class Isolate:
             outdir {PosixPath} -- Destination folder for results.
         """
 
-        self.bank_no   = str("{:03d}".format(bank_no))
+        self.bank_no   = str("{:04d}".format(bank_no))
+        print(self.bank_no)
         self.target    = f"{self.basetarget}{self.bank_no}"
         self.outdir    = outdir
         self.outfile   =  f"{self.bank_no}.tab"

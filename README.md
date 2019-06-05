@@ -73,12 +73,67 @@ In this example we will get data for isolate number 1.
 arbanker grab 1
 ```
 
-The output should look like:
+The stdout should look like:
 
 ```
-Written ${HOME}/ARBanker/results/Metadata/001.tab.
-Written ${HOME}/ARBanker/results/MIC/001.tab.
-Written ${HOME}/ARBanker/results/MMR/001.tab.
+Written ${HOME}/arbanker_results/Metadata/0001.tab.
+Written ${HOME}/arbanker_results/MIC/0001.tab.
+Written ${HOME}/arbanker_results/MMR/0001.tab.
+```
+
+And the contents of each file are outlined below.
+
+### Metadata/001.tab  
+
+```
+AR Bank	Biosample Accession	Panel	Species
+0001	SAMN04014842	Enterobacteriaceae Carbapenem Breakpoint	Escherichia coli
+```
+
+### MMR/001.tab
+
+```
+AR Bank	Category	Gene
+0001	Aminoglycoside	aac(6')Ib-cr,aadA5
+0001	Beta-lactam	KPC-3 ,OXA-1
+0001	Macrolide-Lincosamide-Streptogramin	mph(A)
+0001	Sulfonamides	sul1
+0001	Tetracyclines	tet(A)
+0001	Trimethoprim	dfrA17
+```
+
+### MIC/001.tab
+
+```
+AR Bank	Drug	MIC (μg/ml)	INT
+0001	Amikacin	16	S
+0001	Ampicillin	>32	R
+0001	Ampicillin/sulbactam	>32	R
+0001	Aztreonam	>64	R
+0001	Cefazolin	>8	R
+0001	Cefepime	>32	R
+0001	Cefotaxime	>64	R
+0001	Cefotaxime/clavulanic acid	8	---
+0001	Cefoxitin	>16	R
+0001	Ceftazidime	128	R
+0001	Ceftazidime/avibactam	< =0.5	S
+0001	Ceftazidime/clavulanic acid	>64	---
+0001	Ceftolozane/tazobactam	>16	R
+0001	Ceftriaxone	>32	R
+0001	Ciprofloxacin	>8	R
+0001	Colistin	0.5	---
+0001	Doripenem	4	R
+0001	Ertapenem	8	R
+0001	Gentamicin	4	S
+0001	Imipenem	4	R
+0001	Imipenem+chelators	4	---
+0001	Levofloxacin	>8	R
+0001	Meropenem	4	R
+0001	Piperacillin/tazobactam	>128	R
+0001	Tetracycline	>32	R
+0001	Tigecycline	< =0.5	S
+0001	Tobramycin	>16	R
+0001	Trimethoprim/sulfamethoxazole	>8	R
 ```
 
 ## Advanced usage
@@ -95,3 +150,4 @@ destination:
 ```
 parallel --bar arbanker grab {} -o ~/tmp/arbankerparallel ::: $(seq 1 100)
 ```
+arbanker_results
