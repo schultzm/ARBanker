@@ -89,14 +89,14 @@ Written ${HOME}/arbanker_results/MMR/0001.tab.
 
 And the contents of each file are outlined below.
 
-### Metadata/001.tab  
+### Metadata/0001.tab  
 
 ```
 AR Bank	Biosample Accession	Panel	Species
 0001	SAMN04014842	Enterobacteriaceae Carbapenem Breakpoint	Escherichia coli
 ```
 
-### MMR/001.tab
+### MMR/0001.tab
 
 ```
 AR Bank	Category	Gene
@@ -108,7 +108,7 @@ AR Bank	Category	Gene
 0001	Trimethoprim	dfrA17
 ```
 
-### MIC/001.tab
+### MIC/0001.tab
 
 ```
 AR Bank	Drug	MIC (μg/ml)	INT
