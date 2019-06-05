@@ -1,5 +1,8 @@
 # ARBanker
 
+[![Build Status](https://travis-ci.com/schultzm/ARBanker.svg?branch=master)](https://travis-ci.com/schultzm/ARBanker)
+
+
 Download metadata for isolates stored in the 
 [CDC & FDA Antibiotic Resistance Isolate Bank](
     https://wwwn.cdc.gov/ARIsolateBank/
