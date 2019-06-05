@@ -15,7 +15,6 @@ Download metadata for isolates stored in the
 
 This program will scrape the CDC webpages and parse out the tables to file for each AR Bank ID ("isolate").
 
-[Website here](https://schultzm.github.io/ARBanker/)
 
 ## Author
 
