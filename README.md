@@ -10,7 +10,6 @@
 
 Download metadata for isolates stored in the 
 [CDC & FDA Antibiotic Resistance Isolate Bank](https://www.cdc.gov/drugresistance/resistance-bank/index.html)  
-[link2](https://wwwn.cdc.gov/arisolatebank/Overview)  
 
 This program will scrape the CDC webpages and parse out the tables to file for each AR Bank ID ("isolate").  
 
