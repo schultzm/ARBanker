@@ -160,4 +160,6 @@ parallel --bar arbanker grab {} -o ~/tmp/arbankerparallel ::: $(seq 1 100)
 
 ## Acknowledgements
 
-Torsten Seemann (installed, ran test suite, made suggestions for improvements)
+[Torsten Seemann](https://github.com/tseemann) (installed, ran test suite, made suggestions for improvements)  
+[Josua Schmid](https://github.com/schmijos) (wrote the [parser.py](https://github.com/schmijos/html-table-parser-python3/blob/master/html_table_parser/parser.py) script, which I have utilised for this package)  
+[Microbiological Diagnostic Unit - Public Health Laboratory (my employer)](https://biomedicalsciences.unimelb.edu.au/departments/microbiology-Immunology/research/services/microbiological-diagnostic-unit-public-health-laboratory)
