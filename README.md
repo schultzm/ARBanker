@@ -39,6 +39,12 @@ Installing collected packages: arbanker
 Successfully installed arbanker-1.0.1
 ```
 
+If you want to run this program in parallel, use `gnu parallel`, installed via:  
+
+```
+brew install parallel
+```
+
 ### Testing installation
 
 Run the test suite:  
@@ -63,12 +69,6 @@ Ran 8 tests in 11.004s
 
 OK
 
-```
-
-If you want to run this program in parallel, use `gnu parallel`, installed via:  
-
-```
-brew install parallel
 ```
 
 
