@@ -158,3 +158,6 @@ destination:
 parallel --bar arbanker grab {} -o ~/tmp/arbankerparallel ::: $(seq 1 100)
 ```
 
+## Acknowledgements
+
+Torsten Seemann (installed, ran test suite, made suggestions for improvements)
