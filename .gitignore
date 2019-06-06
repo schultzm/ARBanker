@@ -3,13 +3,14 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-
+*/__pycache__
+*/*/__pycache__
 # Mac files
 .DS_Store
 */.DS_Store
 */*/.DS_Store
 
-
+*/.vscode
 # C extensions
 *.so
 
