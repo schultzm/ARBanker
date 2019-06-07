@@ -9,34 +9,51 @@
 
 
 Download metadata for isolates stored in the 
-[CDC & FDA Antibiotic Resistance Isolate Bank](https://www.cdc.gov/drugresistance/resistance-bank/index.html)  
+[CDC & FDA's Antibiotic Resistance Isolate Bank](https://www.cdc.gov/drugresistance/resistance-bank/index.html)  
 
 This program will scrape the CDC webpages and parse out the tables to file for each AR Bank ID ("isolate").  
 
+## Motivation 
 
-## Author
+Upon requesting (via email) metadata from the CDC for all isolates stored in the ARIsolateBank, we were informed that was no API so would need to manually click through to get the data tables – in excel format and pdf.  Since this did not suit our purposes and there was likely a need for other analysts to do a similar thing, ARBanker was born.
+
+## Authors
 
 [Mark Schultz](https://github.com/schultzm)
+[Torsten Seemann](https://github.com/tseemann)
 
 ## Installation
 
-Install `pip3`, then do:  
+Install `python3` and `pip3` (with `brew install python3`).  We also recommend using a python environment via [`pipenv`](https://docs.pipenv.org/en/latest/) (install with `brew install pipenv`).  After this, do:  
 
 ```
+pipenv shell
 pip3 install git+https://github.com/schultzm/ARBanker.git
 ```
 
-You should see something like:
+To exit the `pipenv shell`, just do `exit`.
+On installing, you should see something like:
 
 ```
 Collecting git+https://github.com/schultzm/ARBanker.git
-  Cloning https://github.com/schultzm/ARBanker.git to /private/var/folders/cw/mt4j09h13bs407sx3rnyqg65lkl8k4/T/pip-req-build-tkrltx_p
+  Cloning https://github.com/schultzm/ARBanker.git to /tmp/schultzm/pip-req-build-f7r0dau7
+  Running command git clone -q https://github.com/schultzm/ARBanker.git /tmp/schultzm/pip-req-build-f7r0dau7
+Collecting pandas>=0.23.4 (from arbanker==1.0.3)
+  Using cached https://files.pythonhosted.org/packages/22/e6/2d47835f91eb010036be207581fa113fb4e3822ec1b4bafb0d3d105fede6/pandas-0.24.2-cp37-cp37m-manylinux1_x86_64.whl
+Collecting pytz>=2011k (from pandas>=0.23.4->arbanker==1.0.3)
+  Using cached https://files.pythonhosted.org/packages/3d/73/fe30c2daaaa0713420d0382b16fbb761409f532c56bdcc514bf7b6262bb6/pytz-2019.1-py2.py3-none-any.whl
+Collecting python-dateutil>=2.5.0 (from pandas>=0.23.4->arbanker==1.0.3)
+  Using cached https://files.pythonhosted.org/packages/41/17/c62faccbfbd163c7f57f3844689e3a78bae1f403648a6afb1d0866d87fbb/python_dateutil-2.8.0-py2.py3-none-any.whl
+Collecting numpy>=1.12.0 (from pandas>=0.23.4->arbanker==1.0.3)
+  Using cached https://files.pythonhosted.org/packages/fc/d1/45be1144b03b6b1e24f9a924f23f66b4ad030d834ad31fb9e5581bd328af/numpy-1.16.4-cp37-cp37m-manylinux1_x86_64.whl
+Collecting six>=1.5 (from python-dateutil>=2.5.0->pandas>=0.23.4->arbanker==1.0.3)
+  Using cached https://files.pythonhosted.org/packages/73/fb/00a976f728d0d1fecfe898238ce23f502a721c0ac0ecfedb80e0d88c64e9/six-1.12.0-py2.py3-none-any.whl
 Building wheels for collected packages: arbanker
   Building wheel for arbanker (setup.py) ... done
-  Stored in directory: /private/var/folders/cw/mt4j09h13bs407sx3rnyqg65lkl8k4/T/pip-ephem-wheel-cache-4j3hinq4/wheels/de/bc/f5/a7ab859b598b192e1118877edf45de19649d177bee933741ab
+  Stored in directory: /tmp/schultzm/pip-ephem-wheel-cache-werv6x2o/wheels/de/bc/f5/a7ab859b598b192e1118877edf45de19649d177bee933741ab
 Successfully built arbanker
-Installing collected packages: arbanker
-Successfully installed arbanker-1.0.1
+Installing collected packages: pytz, six, python-dateutil, numpy, pandas, arbanker
+Successfully installed arbanker-1.0.3 numpy-1.16.4 pandas-0.24.2 python-dateutil-2.8.0 pytz-2019.1 six-1.12.0
 ```
 
 If you want to run this program in parallel, use `gnu parallel`, installed via:  
@@ -160,6 +177,5 @@ parallel --bar arbanker grab {} -o ~/tmp/arbankerparallel ::: $(seq 1 500)
 
 ## Acknowledgements
 
-[Torsten Seemann](https://github.com/tseemann) (installed, ran test suite, made suggestions for improvements)  
 [Josua Schmid](https://github.com/schmijos) (wrote the [parser.py](https://github.com/schmijos/html-table-parser-python3/blob/master/html_table_parser/parser.py) script, which importantly contains the `HTMLTableParser` Class that I have utilised for this package)  
 [Microbiological Diagnostic Unit - Public Health Laboratory (my employer)](https://biomedicalsciences.unimelb.edu.au/departments/microbiology-Immunology/research/services/microbiological-diagnostic-unit-public-health-laboratory)
