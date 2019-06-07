@@ -42,7 +42,7 @@ def main():
     subparser_args1 = argparse.ArgumentParser(add_help=False)
     subparser_args1.add_argument(
         "bank_no",
-        help="""CDC AR Isolate Bank number (e.g., 001 or 1)""",
+        help="""CDC AR Isolate Bank number (e.g., 0001, 01 or 1)""",
         type=int,
         default=None)
     subparser_args1.add_argument(
