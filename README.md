@@ -62,6 +62,13 @@ If you want to run this program in parallel, use `gnu parallel`, installed via:
 brew install parallel
 ```
 
+#### Upgrading the installation  
+
+To get the latest version, do:
+```
+pip3 install git+https://github.com/schultzm/ARBanker.git --upgrade
+```
+
 ### Testing installation
 
 Run the test suite:  
