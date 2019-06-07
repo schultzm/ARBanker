@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 """
-The purpose of this package is to download metadata from the
-CDC's AR Isolate Bank.
+This package will download metadata from the
+CDC & FDA's AR Isolate Bank.
 """
 
 import pandas as pd
@@ -58,8 +58,8 @@ def main():
         title="Sub-commands help", help="", metavar="", dest="subparser_name")
     subparser_modules.add_parser(
         "grab",
-        help="""Grab the metadata from the CDC's AR Isolate bank.""",
-        description="Start the web-scraping for given bank number.",
+        help="""Grab the metadata from the CDC & FDA's AR Isolate bank.""",
+        description="Do the web-scraping for a given bank number.",
         parents=[subparser_args1],
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 

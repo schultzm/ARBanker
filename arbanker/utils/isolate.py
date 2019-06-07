@@ -85,6 +85,9 @@ class Isolate:
         nheaders = len(table[0])
         data = [tabl for tabl in table[1:] if len(tabl) == nheaders] 
         table = pd.DataFrame(data, columns=table[0])
+        # replace the artifact spaces from interpreting bold HTML text 
+        table = table.applymap(lambda x: x.replace(" ,", ","). \
+                                           replace(", ", ","))
         if 'Drug' in table.columns:
             # Replace the footnote markers with ''
             table.Drug = table.Drug.apply(lambda x: re.sub(' [0-9]$', '', x))
