@@ -9,6 +9,7 @@ arbanker = {editable = true,path = "."}
 [packages]
 pandas = "*"
 numpy = "*"
+arbanker = {path = "."}
 
 [requires]
 python_version = "3.7"

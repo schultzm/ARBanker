@@ -2,11 +2,14 @@ language: python
 
 
 python:
-- '3.6'
+- '3.7'
 sudo: false
 
 install:
-- pip3 install git+https://github.com/schultzm/ARBanker.git
+- pip3 install pipenv
+- git clone git+https://github.com/schultzm/ARBanker.git
+- cd ARBanker
+- pipenv install .
 
 before_script:
 - pip3 install codecov

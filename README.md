@@ -19,8 +19,8 @@ Upon requesting (via email) metadata from the CDC for all isolates stored in the
 
 ## Authors
 
-[Mark Schultz](https://github.com/schultzm)
-[Torsten Seemann](https://github.com/tseemann)
+[Mark Schultz](https://github.com/schultzm)  
+[Torsten Seemann](https://github.com/tseemann)  
 
 ## Installation
 
