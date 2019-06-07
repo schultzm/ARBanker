@@ -1,12 +1,10 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ea61d18cfda192d03c03cd5faf39c205a0efacf48545daaf4333bfd44ee28422"
+            "sha256": "25f68ada8d6a525223d61da0a9f0947dbe870731b9e46ff5e507aba5d8f80b0a"
         },
         "pipfile-spec": 6,
-        "requires": {
-            "python_version": "3.7"
-        },
+        "requires": {},
         "sources": [
             {
                 "name": "pypi",
@@ -96,9 +94,5 @@
             "version": "==1.12.0"
         }
     },
-    "develop": {
-        "arbanker": {
-            "path": "."
-        }
-    }
+    "develop": {}
 }
