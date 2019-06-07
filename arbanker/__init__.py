@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 __name__            = 'arbanker'
 __parent_dir__      = 'arbanker'
-__version__         = '1.0.3'
+__version__         = '1.0.4'
 __version_date__    = 'Fri 7th June, 2019'
 __description__     = ('''ARBanker is a bioinformatics tool for 
 capturing metadata for isolates from the CDC AR Isolate Bank.
