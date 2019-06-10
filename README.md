@@ -37,7 +37,12 @@ If at any time you need to exit the `pipenv shell`, just do `exit`.
 On installing, you should see something like:
 
 ```
-
+Installing .…
+Adding arbanker to Pipfile's [packages]…
+✔ Installation Succeeded 
+Installing dependencies from Pipfile.lock (f80b0a)…
+  🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 5/6 — 00:00:00
+...
 ```
 
 If you want to run this program in parallel, use `gnu parallel`, installed via:  
