@@ -31,6 +31,7 @@ git clone https://github.com/schultzm/ARBanker.git
 cd ARBanker
 pipenv install .
 pipenv shell
+cd
 ```
 
 If at any time you need to exit the `pipenv shell`, just do `exit`.
