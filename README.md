@@ -42,7 +42,8 @@ Adding arbanker to Pipfile's [packages]…
 ✔ Installation Succeeded 
 Installing dependencies from Pipfile.lock (f80b0a)…
   🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 5/6 — 00:00:00
-...
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
 ```
 
 If you want to run this program in parallel, use `gnu parallel`, installed via:  
