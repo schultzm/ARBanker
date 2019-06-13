@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "55c1427f8a951b3fb0cabc3b602fbde51be8792fa4475a52b40913780b303672"
+            "sha256": "5c317dd939bc27df13ad3204b5c3e286f496d253428720051e833732fd7f0f58"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -15,6 +15,7 @@
     },
     "default": {
         "arbanker": {
+            "editable": true,
             "path": "."
         },
         "numpy": {
