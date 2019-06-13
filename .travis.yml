@@ -9,9 +9,7 @@ install:
 - pip3 install pipenv
 - git clone https://github.com/schultzm/ARBanker.git
 - cd ARBanker
-- pipenv --python 3.6 install
-- pipenv shell
-- arbanker test
+- pipenv install
 
 before_script:
 - pip3 install codecov
