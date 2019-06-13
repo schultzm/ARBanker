@@ -190,7 +190,7 @@ Run `arbanker` for multiple queries in parallel, outputting to custom
 destination:  
 
 ```
-parallel --bar arbanker grab {} -o ~/tmp/arbankerparallel ::: $(seq 1 500)
+parallel --bar -j 8 arbanker grab {} -o ~/tmp/arbankerparallel ::: $(seq 1 500)
 ```
 
 ## Acknowledgements
