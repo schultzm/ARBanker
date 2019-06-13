@@ -48,18 +48,18 @@ On installing (i.e., `pipenv --python 3.6 install`), you should see something li
 
 ```
 Creating a virtualenv for this project…
-Pipfile: /home/schultzm/mdu_requests/amr_validation/AR_IsolateBank/ARBanker/Pipfile
+Pipfile: ...
 Using /usr/bin/python3 (3.6.8) to create virtualenv…
 ⠸ Creating virtual environment...Using base prefix '/usr'
   No LICENSE.txt / LICENSE found in source
-New python executable in /home/schultzm/.local/share/virtualenvs/ARBanker-xKWDeXpi/bin/python3
-Also creating executable in /home/schultzm/.local/share/virtualenvs/ARBanker-xKWDeXpi/bin/python
+New python executable in ...
+Also creating executable in ...
 Installing setuptools, pip, wheel...
 done.
 Running virtualenv with interpreter /usr/bin/python3
 
 ✔ Successfully created virtual environment! 
-Virtualenv location: /home/schultzm/.local/share/virtualenvs/ARBanker-xKWDeXpi
+Virtualenv location: ...
 Installing dependencies from Pipfile.lock (7f0f58)…
   🐍   ▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉ 6/6 — 00:00:06
 To activate this project's virtualenv, run pipenv shell.
