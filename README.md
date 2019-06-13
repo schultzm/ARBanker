@@ -24,7 +24,7 @@ Upon requesting (via email) metadata from the CDC for all isolates stored in the
 
 ## Installation
 
-If you don't already have it, install `python3` (with `brew install python3`).  Install [`pipenv`](https://docs.pipenv.org/en/latest/) (with `brew install pipenv`).  After this, do:  
+If you don't already have it, install `python3` (with `brew install python3`).  Install [`pipenv`](https://docs.pipenv.org/en/latest/) (with `pip3 install pipenv`).  After this, do:  
 
 ```
 git clone https://github.com/schultzm/ARBanker.git
