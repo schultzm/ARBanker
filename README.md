@@ -76,9 +76,10 @@ brew install parallel
 
 #### Upgrading the installation  
 
-To get the latest version, do:
+To get the latest version, as arbanker is installed in editable mode, simply do:
 ```
-pip3 install git+https://github.com/schultzm/ARBanker.git --upgrade
+cd ARBanker
+git pull origin
 ```
 
 ### Testing installation
