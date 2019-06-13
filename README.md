@@ -34,7 +34,8 @@ pipenv shell
 arbanker test
 ```
 
-If at any time you need to exit the `pipenv shell`, just do `exit`.
+If at any time you need to exit the `pipenv shell`, just do `exit`.  
+
 On installing, you should see something like:
 
 ```
