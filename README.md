@@ -32,9 +32,17 @@ cd ARBanker
 pipenv --python 3.6 install
 pipenv shell
 arbanker test
+# cd to wherever, work wherever. arbanker will run from the venv until `exit` from venv.
 ```
 
-If at any time you need to exit the `pipenv shell`, just do `exit`.  
+If at any time you need to exit the venv activated by `pipenv shell`, just do `exit`.  
+To get back into it the venv at a later time, do:  
+
+```
+cd ARBanker
+pipenv shell
+```
+
 
 On installing, you should see something like:
 
