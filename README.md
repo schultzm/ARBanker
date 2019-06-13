@@ -29,9 +29,9 @@ If you don't already have it, install `python3` (with `brew install python3`).  
 ```
 git clone https://github.com/schultzm/ARBanker.git
 cd ARBanker
-pipenv install .
+pipenv --python 3.6 install
 pipenv shell
-cd
+arbanker test
 ```
 
 If at any time you need to exit the `pipenv shell`, just do `exit`.
