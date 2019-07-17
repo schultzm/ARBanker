@@ -2,19 +2,22 @@ from pathlib import Path
 import pandas as pd
 import re
 import sys
+from subprocess import Popen, PIPE
+import shlex
 
 
 class Isolate:
     basetarget = "https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID="
-    def __init__(self, bank_no, outdir):
+    def __init__(self, outdir, bank_no=0, biosample=None):
         """Intialise the Isolate.
         
         Arguments:
             bank_no {int} -- The AR Isolate Bank item number.
             outdir {PosixPath} -- Destination folder for results.
         """
-
-        self.bank_no   = str("{:04d}".format(bank_no))
+        self.bank_no = bank_no
+        if bank_no > 0:
+            self.bank_no = str("{:04d}".format(bank_no))
         self.target    = f"{self.basetarget}{self.bank_no}"
         self.outdir    = outdir
         self.outfile   =  f"{self.bank_no}.tab"
@@ -22,6 +25,9 @@ class Isolate:
         self.mic_name   = "MIC" 
         self.mmr_name   = "MMR"
         self.index_name = "AR Bank"
+        self.biosample = None
+        if biosample:
+            self.biosample  = biosample
     
     def hit_xml(self):
         """Query the CDC webpage and return the table.
@@ -30,17 +36,26 @@ class Isolate:
             dict -- {'Name of table': 'table'}.
         """
         from .parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
-        from urllib.request import Request, urlopen
-        # get website content
-        req = Request(url=self.target)
-        f = urlopen(req)
-        xhtml = f.read().decode('utf-8')
+        xhtml = None
+        if self.biosample:
+            cmd = f"esearch -db biosample -query {biosample}"
+            proc = Popen(shlex.split(cmd), stdout=PIPE, stderr=PIPE)
+            result = proc.communicate()[0]
+            print(result)
+        else:
+            from urllib.request import Request, urlopen
+            # get website content
+            req = Request(url=self.target)
+            f = urlopen(req)
+            xhtml = f.read().decode('utf-8')
         # instantiate the parser and feed it
         p = HTMLTableParser()
         p.feed(xhtml)
+        print(p.tables)
         return {"Metadata": p.tables[0],
                 "MIC": p.tables[1],
                 "MMR": p.tables[2]}
+    
 
     def render_metadatatable(self, tabl):
         """Formatter method for a metadata table.

@@ -25,7 +25,7 @@ def getdata(bank_no, outdir):
         outdir {PosixPath} -- The output directory as a PosixPath object
     """
     from .utils.isolate import Isolate
-    iso = Isolate(bank_no, outdir)
+    iso = Isolate(outdir, bank_no=bank_no)
     for table_name in ['Metadata', 'MIC', 'MMR']:
         iso.write_table(table_name)
 
@@ -41,16 +41,32 @@ def main():
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     subparser_args1 = argparse.ArgumentParser(add_help=False)
     subparser_args1.add_argument(
-        "bank_no",
-        help="""CDC AR Isolate Bank number (e.g., 0001, 01 or 1)""",
-        type=int,
-        default=None)
-    subparser_args1.add_argument(
         "-o",
         "--output_directory",
         help="Specify path to output results",
         default=Path.home() / 'arbanker_results',
         type = Path,
+        required=False
+    )
+    subparser_args1.add_argument(
+        "-r",
+        "--resource",
+        help="NCBI or AR Isolate Bank",
+        choices = ['arbank', 'ncbi'],
+        required = True
+    )
+    subparser_args1.add_argument(
+        "-n",
+        "--bank_no",
+        help="""CDC AR Isolate Bank number (e.g., 0001, 01 or 1)""",
+        type=int,
+        default=None
+    )
+    subparser_args1.add_argument(
+        "-b",
+        "--biosample_no",
+        help="Biosample number",
+        default=None,
         required=False
     )
 
@@ -75,7 +91,10 @@ def main():
     if not args.subparser_name:
         parser.print_help()
     elif args.subparser_name == 'grab':
-        getdata(args.bank_no, args.output_directory)
+        if args.resource == "arbank":
+            getdata(args.bank_no, args.output_directory, bank_noargs.bank_no, None)
+        elif args.resource == 'ncbi':
+            getdata(args.biosample_no, args.output_directory, 0, args.biosample_no)
     elif args.subparser_name == 'version':
         from .utils.version import Version
         Version()
