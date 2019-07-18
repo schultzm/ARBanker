@@ -8,26 +8,25 @@ import shlex
 
 class Isolate:
     basetarget = "https://wwwn.cdc.gov/ARIsolateBank/Panel/IsolateDetail?IsolateID="
-    def __init__(self, outdir, bank_no=0, biosample=None):
+    def __init__(self, outdir, resource, resource_no):
         """Intialise the Isolate.
         
         Arguments:
             bank_no {int} -- The AR Isolate Bank item number.
             outdir {PosixPath} -- Destination folder for results.
         """
-        self.bank_no = bank_no
-        if bank_no > 0:
-            self.bank_no = str("{:04d}".format(bank_no))
-        self.target    = f"{self.basetarget}{self.bank_no}"
+        self.resource = resource
+        if self.resource == 'arbank':
+            self.resource_no = str("{:04d}".format(int(resource_no)))
+            self.target    = f"{self.basetarget}{self.resource_no}"
+        elif self.resource == 'ncbi':
+            self.resource_no = resource_no
         self.outdir    = outdir
-        self.outfile   =  f"{self.bank_no}.tab"
+        self.outfile   =  f"{self.resource_no}.tab"
         self.mdata_name = "Metadata"
         self.mic_name   = "MIC" 
         self.mmr_name   = "MMR"
         self.index_name = "AR Bank"
-        self.biosample = None
-        if biosample:
-            self.biosample  = biosample
     
     def hit_xml(self):
         """Query the CDC webpage and return the table.
@@ -37,11 +36,35 @@ class Isolate:
         """
         from .parser import HTMLTableParser # code by https://github.com/schmijos/html-table-parser-python3
         xhtml = None
-        if self.biosample:
-            cmd = f"esearch -db biosample -query {biosample}"
-            proc = Popen(shlex.split(cmd), stdout=PIPE, stderr=PIPE)
-            result = proc.communicate()[0]
-            print(result)
+        if self.resource == 'ncbi':
+#             cmd = f"esearch -db biosample -query {self.resource_no}"
+#             cmd2 = f"efetch -format xml"
+#             proc = Popen(shlex.split(cmd), stdout=PIPE, stderr=PIPE)
+#             proc2 = Popen(shlex.split(cmd), stdin=proc.stdout, stdout=PIPE, stderr=PIPE)
+            from Bio import Entrez
+            Entrez.email = "mark.schultz@unimelb.edu.au"
+            handle = Entrez.efetch(db="biosample", id=self.resource_no, retmode="xml")
+            xml = '\n'.join(list(filter(None, [i.rstrip('\n') for i in handle.readlines()])))
+            from defusedxml.ElementTree import fromstring
+            et = fromstring(xml)
+            for child in et.iter('Antibiogram'):
+                print(child.tag, child.attrib)
+#             print(xhtml)
+#             print(handle)
+#             records = Entrez.read(handle, validate=False)
+#             print(list(records))
+#                 print(record)
+            import sys
+            sys.exit()
+#             print(records)
+#             for record in records:
+#                 print(record)
+#             # each record is a Python dictionary or list.
+#                 print(record)
+#                 print(proc2)
+#             result = proc2.communicate()
+#             print(result)
+#             xhtml = None
         else:
             from urllib.request import Request, urlopen
             # get website content
@@ -51,10 +74,10 @@ class Isolate:
         # instantiate the parser and feed it
         p = HTMLTableParser()
         p.feed(xhtml)
-        print(p.tables)
-        return {"Metadata": p.tables[0],
-                "MIC": p.tables[1],
-                "MMR": p.tables[2]}
+        print(p.rawdata)
+#         return {"Metadata": p.tables[0],
+#                 "MIC": p.tables[1],
+#                 "MMR": p.tables[2]}
     
 
     def render_metadatatable(self, tabl):
@@ -105,7 +128,7 @@ class Isolate:
         if 'Drug' in table.columns:
             # Replace the footnote markers with ''
             table.Drug = table.Drug.apply(lambda x: re.sub(' [0-9]$', '', x))
-        table[self.index_name] = self.bank_no
+        table[self.index_name] = self.resource_no
         cols = [self.index_name] + \
                [i for i in table.columns.tolist() if i != self.index_name]
         table = table[cols]

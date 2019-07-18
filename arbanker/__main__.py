@@ -12,7 +12,7 @@ from pathlib import Path
 import sys
 
 
-def getdata(bank_no, outdir):
+def getdata(outdir, resource, resource_no):
     """Create an instance of an Isolate() for each bank_no.
        Write out tables from the CDC AR bank for each isolate.
        There will be one table each for:
@@ -25,9 +25,12 @@ def getdata(bank_no, outdir):
         outdir {PosixPath} -- The output directory as a PosixPath object
     """
     from .utils.isolate import Isolate
-    iso = Isolate(outdir, bank_no=bank_no)
-    for table_name in ['Metadata', 'MIC', 'MMR']:
-        iso.write_table(table_name)
+    iso = Isolate(outdir, resource, resource_no)
+    if resource == 'arbank':
+        for table_name in ['Metadata', 'MIC', 'MMR']:
+            iso.write_table(table_name)
+    elif resource == 'ncbi':
+        print(iso.hit_xml())
 
 
 def main():
@@ -57,17 +60,9 @@ def main():
     )
     subparser_args1.add_argument(
         "-n",
-        "--bank_no",
-        help="""CDC AR Isolate Bank number (e.g., 0001, 01 or 1)""",
-        type=int,
+        "--resource_no",
+        help="""Either Biosample (for NCBI, string) or Isolate Bank number (for CDC FDA bank, integer – e.g., 0001, 01 or 1)""",
         default=None
-    )
-    subparser_args1.add_argument(
-        "-b",
-        "--biosample_no",
-        help="Biosample number",
-        default=None,
-        required=False
     )
 
     subparser_modules = parser.add_subparsers(
@@ -91,10 +86,9 @@ def main():
     if not args.subparser_name:
         parser.print_help()
     elif args.subparser_name == 'grab':
-        if args.resource == "arbank":
-            getdata(args.bank_no, args.output_directory, bank_noargs.bank_no, None)
-        elif args.resource == 'ncbi':
-            getdata(args.biosample_no, args.output_directory, 0, args.biosample_no)
+            getdata(args.output_directory,
+                    args.resource,
+                    args.resource_no)
     elif args.subparser_name == 'version':
         from .utils.version import Version
         Version()

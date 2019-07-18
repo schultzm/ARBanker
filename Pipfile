@@ -9,3 +9,5 @@ verify_ssl = true
 pandas = ">=0.24.2"
 numpy = ">=1.16.3"
 arbanker = {editable = true,path = "."}
+biopython = "*"
+defusedxml = "*"
