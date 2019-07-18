@@ -45,10 +45,53 @@ class Isolate:
             Entrez.email = "mark.schultz@unimelb.edu.au"
             handle = Entrez.efetch(db="biosample", id=self.resource_no, retmode="xml")
             xml = '\n'.join(list(filter(None, [i.rstrip('\n') for i in handle.readlines()])))
-            from defusedxml.ElementTree import fromstring
-            et = fromstring(xml)
-            for child in et.iter('Antibiogram'):
-                print(child.tag, child.attrib)
+            xml = xml.replace('><', '>\n<').replace('> ', '>\n ')
+            print(xml)
+            # print(xml[0:1000])
+            # from defusedxml.ElementTree import fromstring
+            from defusedxml import ElementTree as ET
+            root = ET.fromstring(xml)
+            print(root)
+            # headers = [cell.text for cell in header.iter('Cell') for header in root.iter('Table')]
+            # print(headers)
+            # print([[j.text for j in i.getchildren()] for i in root[0][1][2][0].getchildren()[1: 3]])
+
+            # # print('root.tag', root.tag)
+            # table = root.iter('Table')
+            # # print(dir(ET))
+            headers = []
+            rows = []
+            for header in root.iter('Header'):
+                for cell in header.iter('Cell'):
+                    headers.append(cell.text)
+            for row in root.iter('Row'):
+                cells = [cell.text for cell in row.iter('Cell')]
+                rows.append(cells)
+            import pandas as pd
+            # rows = list(zip(rows))
+            print(rows)
+            df = pd.DataFrame(rows, columns = headers)
+            print(df.to_csv())
+            # print(rows)
+                # for grandchild in child.iter('table'):
+                #     print(grandchild.tag, grandchild.attrib)
+            # print('root', elementtree)
+            # print('roottag', elementtree.tag)
+            # print('rootattrib', elementtree.attrib)
+            # print('elementtree', elementtree)
+            # for child in elementtree.getchildren():
+            #     print('child', child)
+            #     print('attrib', child.attrib)
+            #     print('tag', child.tag)
+                # for infant in child.getchildren():
+                #     print(infant)
+                # for child in header.getchildren():
+                #     for comment in child.findall('Comment'):
+                #         for table in comment.getchildren():
+                #             for header2 in table.findall('Header'):
+                #                 print(header2.getroot())
+            # for child in et.iter('Antibiogram'):
+            #     print(child.tag, child.attrib)
 #             print(xhtml)
 #             print(handle)
 #             records = Entrez.read(handle, validate=False)
